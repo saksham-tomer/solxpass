@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "tier": "Animal",
+    "rank": 3,
+    "imageUrl": "https://example.com/avatars/animal1.png",
+    "name": "Leo the Lion",
+    "verifiedDataPoints": ["GitHub", "LinkedIn"],
+    "totalScore": 750
+  },
+  {
+    "id": 2,
+    "tier": "Animal",
+    "rank": 7,
+    "imageUrl": "https://example.com/avatars/animal2.png",
+    "name": "Ellie the Elephant",
+    "verifiedDataPoints": ["Twitter", "GitHub", "Amazon"],
+    "totalScore": 620
+  },
+  {
+    "id": 3,
+    "tier": "Animal",
+    "rank": 2,
+    "imageUrl": "https://example.com/avatars/animal3.png",
+    "name": "Gerry the Giraffe",
+    "verifiedDataPoints": ["LinkedIn", "Amazon"],
+    "totalScore": 810
+  },
+  {
+    "id": 4,
+    "tier": "Animal",
+    "rank": 9,
+    "imageUrl": "https://example.com/avatars/animal4.png",
+    "name": "Penny the Penguin",
+    "verifiedDataPoints": ["GitHub"],
+    "totalScore": 540
+  },
+  {
+    "id": 5,
+    "tier": "Animal",
+    "rank": 5,
+    "imageUrl": "https://example.com/avatars/animal5.png",
+    "name": "Ollie the Owl",
+    "verifiedDataPoints": ["LinkedIn", "Twitter", "GitHub"],
+    "totalScore": 680
+  },
+  {
+    "id": 6,
+    "tier": "Animal",
+    "rank": 1,
+    "imageUrl": "https://example.com/avatars/animal6.png",
+    "name": "Tina the Tiger",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon", "Twitter"],
+    "totalScore": 920
+  },
+  {
+    "id": 7,
+    "tier": "Animal",
+    "rank": 8,
+    "imageUrl": "https://example.com/avatars/animal7.png",
+    "name": "Kangy the Kangaroo",
+    "verifiedDataPoints": ["Twitter"],
+    "totalScore": 580
+  },
+  {
+    "id": 8,
+    "tier": "Animal",
+    "rank": 4,
+    "imageUrl": "https://example.com/avatars/animal8.png",
+    "name": "Ziggy the Zebra",
+    "verifiedDataPoints": ["GitHub", "Amazon"],
+    "totalScore": 730
+  },
+  {
+    "id": 9,
+    "tier": "Animal",
+    "rank": 6,
+    "imageUrl": "https://example.com/avatars/animal9.png",
+    "name": "Hippo Harry",
+    "verifiedDataPoints": ["LinkedIn", "Twitter"],
+    "totalScore": 650
+  },
+  {
+    "id": 10,
+    "tier": "Animal",
+    "rank": 10,
+    "imageUrl": "https://example.com/avatars/animal10.png",
+    "name": "Koala Kate",
+    "verifiedDataPoints": ["Amazon"],
+    "totalScore": 500
+  },
+  {
+    "id": 11,
+    "tier": "Dinosaur",
+    "rank": 3,
+    "imageUrl": "https://example.com/avatars/dino1.png",
+    "name": "Rex the T-Rex",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter"],
+    "totalScore": 1750
+  },
+  {
+    "id": 12,
+    "tier": "Dinosaur",
+    "rank": 7,
+    "imageUrl": "https://example.com/avatars/dino2.png",
+    "name": "Trixie the Triceratops",
+    "verifiedDataPoints": ["LinkedIn", "Amazon"],
+    "totalScore": 1620
+  },
+  {
+    "id": 13,
+    "tier": "Dinosaur",
+    "rank": 2,
+    "imageUrl": "https://example.com/avatars/dino3.png",
+    "name": "Velo the Velociraptor",
+    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
+    "totalScore": 1810
+  },
+  {
+    "id": 14,
+    "tier": "Dinosaur",
+    "rank": 9,
+    "imageUrl": "https://example.com/avatars/dino4.png",
+    "name": "Bronto the Brontosaurus",
+    "verifiedDataPoints": ["LinkedIn"],
+    "totalScore": 1540
+  },
+  {
+    "id": 15,
+    "tier": "Dinosaur",
+    "rank": 5,
+    "imageUrl": "https://example.com/avatars/dino5.png",
+    "name": "Stego the Stegosaurus",
+    "verifiedDataPoints": ["GitHub", "Amazon"],
+    "totalScore": 1680
+  },
+  {
+    "id": 16,
+    "tier": "Dinosaur",
+    "rank": 1,
+    "imageUrl": "https://example.com/avatars/dino6.png",
+    "name": "Ptero the Pterodactyl",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
+    "totalScore": 1920
+  },
+  {
+    "id": 17,
+    "tier": "Dinosaur",
+    "rank": 8,
+    "imageUrl": "https://example.com/avatars/dino7.png",
+    "name": "Anky the Ankylosaurus",
+    "verifiedDataPoints": ["Twitter", "Amazon"],
+    "totalScore": 1580
+  },
+  {
+    "id": 18,
+    "tier": "Dinosaur",
+    "rank": 4,
+    "imageUrl": "https://example.com/avatars/dino8.png",
+    "name": "Diplo the Diplodocus",
+    "verifiedDataPoints": ["GitHub", "LinkedIn"],
+    "totalScore": 1730
+  },
+  {
+    "id": 19,
+    "tier": "Dinosaur",
+    "rank": 6,
+    "imageUrl": "https://example.com/avatars/dino9.png",
+    "name": "Allo the Allosaurus",
+    "verifiedDataPoints": ["LinkedIn", "Twitter"],
+    "totalScore": 1650
+  },
+  {
+    "id": 20,
+    "tier": "Dinosaur",
+    "rank": 10,
+    "imageUrl": "https://example.com/avatars/dino10.png",
+    "name": "Pachy the Pachycephalosaurus",
+    "verifiedDataPoints": ["Amazon"],
+    "totalScore": 1500
+  },
+  {
+    "id": 21,
+    "tier": "Alien",
+    "rank": 3,
+    "imageUrl": "https://example.com/avatars/alien1.png",
+    "name": "Zorb from Zeta Reticuli",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
+    "totalScore": 2750
+  },
+  {
+    "id": 22,
+    "tier": "Alien",
+    "rank": 7,
+    "imageUrl": "https://example.com/avatars/alien2.png",
+    "name": "Xylon of Andromeda",
+    "verifiedDataPoints": ["LinkedIn", "Twitter"],
+    "totalScore": 2620
+  },
+  {
+    "id": 23,
+    "tier": "Alien",
+    "rank": 2,
+    "imageUrl": "https://example.com/avatars/alien3.png",
+    "name": "Quix from Quasar 7",
+    "verifiedDataPoints": ["GitHub", "Amazon", "LinkedIn"],
+    "totalScore": 2810
+  },
+  {
+    "id": 24,
+    "tier": "Alien",
+    "rank": 9,
+    "imageUrl": "https://example.com/avatars/alien4.png",
+    "name": "Nebu of Nebula Nibiru",
+    "verifiedDataPoints": ["Twitter"],
+    "totalScore": 2540
+  },
+  {
+    "id": 25,
+    "tier": "Alien",
+    "rank": 5,
+    "imageUrl": "https://example.com/avatars/alien5.png",
+    "name": "Gamma from Galaxy X",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon"],
+    "totalScore": 2680
+  },
+  {
+    "id": 26,
+    "tier": "Alien",
+    "rank": 1,
+    "imageUrl": "https://example.com/avatars/alien6.png",
+    "name": "Alpha of Antares",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
+    "totalScore": 2920
+  },
+  {
+    "id": 27,
+    "tier": "Alien",
+    "rank": 8,
+    "imageUrl": "https://example.com/avatars/alien7.png",
+    "name": "Pulsar Pete",
+    "verifiedDataPoints": ["GitHub", "Twitter"],
+    "totalScore": 2580
+  },
+  {
+    "id": 28,
+    "tier": "Alien",
+    "rank": 4,
+    "imageUrl": "https://example.com/avatars/alien8.png",
+    "name": "Cosmo from Cygnus X-1",
+    "verifiedDataPoints": ["LinkedIn", "Amazon"],
+    "totalScore": 2730
+  },
+  {
+    "id": 29,
+    "tier": "Alien",
+    "rank": 6,
+    "imageUrl": "https://example.com/avatars/alien9.png",
+    "name": "Nova from Nexus 6",
+    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
+    "totalScore": 2650
+  },
+  {
+    "id": 30,
+    "tier": "Alien",
+    "rank": 10,
+    "imageUrl": "https://example.com/avatars/alien10.png",
+    "name": "Stardust Stella",
+    "verifiedDataPoints": ["LinkedIn"],
+    "totalScore": 2500
+  },
+  {
+    "id": 31,
+    "tier": "Superhero",
+    "rank": 3,
+    "imageUrl": "https://example.com/avatars/hero1.png",
+    "name": "Captain Codebreaker",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
+    "totalScore": 3750
+  },
+  {
+    "id": 32,
+    "tier": "Superhero",
+    "rank": 7,
+    "imageUrl": "https://example.com/avatars/hero2.png",
+    "name": "The Incredible Dev",
+    "verifiedDataPoints": ["GitHub", "LinkedIn"],
+    "totalScore": 3620
+  },
+  {
+    "id": 33,
+    "tier": "Superhero",
+    "rank": 2,
+    "imageUrl": "https://example.com/avatars/hero3.png",
+    "name": "Wonder Coder",
+    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
+    "totalScore": 3810
+  },
+  {
+    "id": 34,
+    "tier": "Superhero",
+    "rank": 9,
+    "imageUrl": "https://example.com/avatars/hero4.png",
+    "name": "The Flash Debugger",
+    "verifiedDataPoints": ["LinkedIn", "Twitter"],
+    "totalScore": 3540
+  },
+  {
+    "id": 35,
+    "tier": "Superhero",
+    "rank": 5,
+    "imageUrl": "https://example.com/avatars/hero5.png",
+    "name": "Iron Programmer",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon"],
+    "totalScore": 3680
+  },
+  {
+    "id": 36,
+    "tier": "Superhero",
+    "rank": 1,
+    "imageUrl": "https://example.com/avatars/hero6.png",
+    "name": "Doctor Datastream",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
+    "totalScore": 3920
+  },
+  {
+    "id": 37,
+    "tier": "Superhero",
+    "rank": 8,
+    "imageUrl": "https://example.com/avatars/hero7.png",
+    "name": "The Green Googler",
+    "verifiedDataPoints": ["GitHub", "Twitter"],
+    "totalScore": 3580
+  },
+  {
+    "id": 38,
+    "tier": "Superhero",
+    "rank": 4,
+    "imageUrl": "https://example.com/avatars/hero8.png",
+    "name": "Aqua Algorithm",
+    "verifiedDataPoints": ["LinkedIn", "Amazon"],
+    "totalScore": 3730
+  },
+  {
+    "id": 39,
+    "tier": "Superhero",
+    "rank": 6,
+    "imageUrl": "https://example.com/avatars/hero9.png",
+    "name": "Black Blockchain",
+    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter"],
+    "totalScore": 3650
+  },
+  {
+    "id": 40,
+    "tier": "Superhero",
+    "rank": 10,
+    "imageUrl": "https://example.com/avatars/hero10.png",
+    "name": "Captain Console",
+    "verifiedDataPoints": ["Amazon"],
+    "totalScore": 3500
+  }
+]

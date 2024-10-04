@@ -1,0 +1,256 @@
+{
+  "entertainment": [
+    {
+      "id": "f043fdac-1b4e-4c2f-83da-50d8e63a3ce3",
+      "name": "Netflix Watch",
+      "score": 5,
+      "description": "Tracks Netflix viewing history"
+    },
+    {
+      "id": "1eece0b1-f8ac-4539-80c4-ac6e149a7d77",
+      "name": "Spotify - v2 - recently played",
+      "score": 5,
+      "description": "Provides data on recently played tracks on Spotify"
+    }
+  ],
+  "finance": [
+    {
+      "id": "2b22db5c-78d9-4d82-84f0-a9e0a4ed0470",
+      "name": "Binance KYC Level",
+      "score": 10,
+      "description": "Verifies the KYC level on Binance cryptocurrency exchange"
+    },
+    {
+      "id": "acfdeaa9-9250-4acd-afd3-fac7ca03458b",
+      "name": "Stripe Last Transaction Amount",
+      "score": 10,
+      "description": "Provides the amount of the last transaction processed through Stripe"
+    },
+    {
+      "id": "30f7d414-948e-4873-92f9-3893f31bc84d",
+      "name": "Coinbase Identity",
+      "score": 10,
+      "description": "Verifies identity information from Coinbase cryptocurrency exchange"
+    }
+  ],
+  "gaming": [
+    {
+      "id": "6d032171-1187-4fcb-9146-8cfcbfef2579",
+      "name": "Epic Games",
+      "score": 5,
+      "description": "Provides information from Epic Games account"
+    },
+    {
+      "id": "1bba104c-f7e3-4b58-8b42-f8c0346cdeab",
+      "name": "Steam ID",
+      "score": 5,
+      "description": "Verifies Steam gaming platform identity"
+    },
+    {
+      "id": "bd95d43f-e06a-4fd7-ac46-3f4c9da284f0",
+      "name": "MonkeyType 30 sec - game of life",
+      "score": 5,
+      "description": "Provides typing speed data from MonkeyType"
+    }
+  ],
+  "social_media": [
+    {
+      "id": "475b5501-427b-47c8-b007-fb7837cd8b5c",
+      "name": "Twitter Credentials",
+      "score": 15,
+      "description": "Verifies Twitter account credentials and provides account data"
+    },
+    {
+      "id": "ea59b819-959c-41aa-83a5-5dea18844c06",
+      "name": "Twitter Follower Count Feb2 Demo",
+      "score": 10,
+      "description": "Provides Twitter follower count data"
+    },
+    {
+      "id": "a310637a-7655-4f19-9756-3d54827fc1aa",
+      "name": "Discord User Id",
+      "score": 15,
+      "description": "Provides Discord user identification and related account data"
+    },
+    {
+      "id": "e7764c64-ecd3-4781-a57a-0a2dc065fd75",
+      "name": "Discord Channel Access",
+      "score": 10,
+      "description": "Verifies access to specific Discord channels"
+    },
+    {
+      "id": "e47f0a1f-c876-4451-af68-7728aeb959f5",
+      "name": "Discord Provder",
+      "score": 10,
+      "description": "General Discord account verification"
+    },
+    {
+      "id": "9cbb4140-80c0-44bb-a48f-e0b52eeaa50f",
+      "name": "Discord Channel ID",
+      "score": 10,
+      "description": "Provides specific Discord channel identifiers"
+    },
+    {
+      "id": "b0f1d9b8-29b2-4a86-9ddc-7c6048db7c25",
+      "name": "Discord username",
+      "score": 10,
+      "description": "Verifies Discord username"
+    },
+    {
+      "id": "383ff708-3b12-4fdb-9974-a01b561da061",
+      "name": "Instagram Followers",
+      "score": 15,
+      "description": "Verifies Instagram follower count and provides account insights"
+    },
+    {
+      "id": "7729ae3e-179c-4ac8-8c5d-4bcd909c864d",
+      "name": "Instagram Followers Count Verified",
+      "score": 10,
+      "description": "Provides verified Instagram follower count"
+    },
+    {
+      "id": "12f96330-7e20-4e6a-9bb3-bdc71f90c57d",
+      "name": "Instagram Posts Count",
+      "score": 10,
+      "description": "Provides the number of posts on an Instagram account"
+    },
+    {
+      "id": "5dbf61bc-1b14-454c-9c16-bbe4dcf262f6",
+      "name": "Instagram Story Views",
+      "score": 10,
+      "description": "Provides data on Instagram story views"
+    },
+    {
+      "id": "a7dcfc29-25a6-44ca-8e7b-a3099044bc63",
+      "name": "Instagram - Username and Follower Count #a7dcfc29",
+      "score": 10,
+      "description": "Verifies Instagram username and follower count"
+    },
+    {
+      "id": "6d3f6753-7ee6-49ee-a545-62f1b1822ae5",
+      "name": "GitHub UserName",
+      "score": 15,
+      "description": "Verifies GitHub username and provides repository and activity data"
+    },
+    {
+      "id": "acb0d5eb-6dd9-4912-97bb-6dd0a0bf4f43",
+      "name": "Github Follower Count",
+      "score": 10,
+      "description": "Provides the number of followers on GitHub"
+    },
+    {
+      "id": "3e2324b8-cb66-4dec-9d20-9de7554d90e6",
+      "name": "Github commit rows",
+      "score": 10,
+      "description": "Provides data on GitHub commit activity"
+    },
+    {
+      "id": "8573efb4-4529-47d3-80da-eaa7384dac19",
+      "name": "Github Contributions in the last year",
+      "score": 10,
+      "description": "Provides GitHub contribution data for the past year"
+    },
+    {
+      "id": "5622b4ea-b953-4cd9-a377-409bb7ed5ec5",
+      "name": "GitHub Repositories",
+      "score": 10,
+      "description": "Provides the total number of GitHub repositories for a user"
+    },
+    {
+      "id": "03cdff35-6c27-4626-8231-2b298c3538c0",
+      "name": "LinkedIn Analytics Data",
+      "score": 10,
+      "description": "Provides analytics data from LinkedIn profile"
+    },
+    {
+      "id": "29162ff4-c52c-4275-829e-f8eaba1e7b99",
+      "name": "Leetcode Problems Solved",
+      "score": 5,
+      "description": "Verifies LeetCode account and potentially provides solving statistics"
+    },
+    {
+      "id": "9640cb3e-6a1a-43cc-8447-812b676d917f",
+      "name": "Stackoverflow Reputation",
+      "score": 10,
+      "description": "Provides Stack Overflow reputation score"
+    }
+  ],
+  "shopping": [
+    {
+      "id": "204eee16-178e-42a6-a1b2-802d435322d8",
+      "name": "Myntra Membership Type",
+      "score": 5,
+      "description": "Verifies membership type on Myntra fashion e-commerce platform"
+    },
+    {
+      "id": "23aafac5-dca7-4030-98b0-e7ae82156815",
+      "name": "Amazon Prime Membership",
+      "score": 10,
+      "description": "Verifies Amazon Prime membership status"
+    },
+    {
+      "id": "867fc359-e958-410a-b08a-70b066d5d240",
+      "name": "Amazon Order Count YTD",
+      "score": 10,
+      "description": "Provides the count of Amazon orders year-to-date"
+    },
+    {
+      "id": "7dcb1f95-46ae-4eee-b61a-e7184cb0949f",
+      "name": "nykaa order history - test",
+      "score": 5,
+      "description": "Provides order history data from Nykaa beauty e-commerce platform"
+    },
+    {
+      "id": "1f97a642-468b-4349-ac03-00eb98c71e27",
+      "name": "flipkart supercoins balance",
+      "score": 5,
+      "description": "Verifies Flipkart SuperCoins balance"
+    }
+  ],
+  "food": [
+    {
+      "id": "398683a3-f48e-4e40-9b54-cf9b5c044417",
+      "name": "Zomato order count",
+      "score": 10,
+      "description": "Provides the number of orders placed on Zomato food delivery platform"
+    },
+    {
+      "id": "35db0668-6594-4114-9f89-def7ccafeaa2",
+      "name": "Swiggy last order price",
+      "score": 5,
+      "description": "Provides the price of the last order placed on Swiggy food delivery platform"
+    }
+  ],
+  "professional": [
+    {
+      "id": "5e1302ca-a3dd-4ef8-bc25-24fcc97dc800",
+      "name": "AadhaarCard Date of Birth",
+      "score": 10,
+      "description": "Verifies date of birth from Aadhaar card, India's national ID"
+    },
+    {
+      "id": "9536778f-25f8-4d3b-b86f-b3d82187a999",
+      "name": "DL Name",
+      "score": 5,
+      "description": "Verifies name on Driver's License"
+    },
+    {
+      "id": "70d5972a-3429-4d5a-9790-39ea646789ca",
+      "name": "Digilocker Based Aadhaar Details",
+      "score": 10,
+      "description": "Provides Aadhaar details stored in DigiLocker, India's digital document wallet"
+    },
+    {
+      "id": "f9f383fd-32d9-4c54-942f-5e9fda349762",
+      "name": "Gmail Account",
+      "score": 10,
+      "description": "Verifies Gmail account ownership"
+    },
+    {
+      "id": "0bc34db6-bae2-48ca-b864-9f1094defedc",
+      "name": "YC Founder Details",
+      "score": 10,
+      "description": "Verifies Y Combinator founder status and provides related details"
+    }
+  ]
+}
