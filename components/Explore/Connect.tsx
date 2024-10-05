@@ -4,6 +4,7 @@ import { Reclaim } from "@reclaimprotocol/js-sdk";
 import QRCode from "react-qr-code";
 import { Clipboard } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 interface ProviderData {
   id: string;
@@ -50,7 +51,7 @@ export default function RequestProof({
         reclaimClient.setStatusUrl(data.statusUrl);
 
         await reclaimClient.startSession({
-          onSuccessCallback: (proofs) => {
+          onSuccessCallback: async (proofs) => {
             console.log("Proofs received:", proofs);
             const claimData = proofs[0]?.claimData;
             const witness = proofs[0]?.witnesses[0];
@@ -64,6 +65,31 @@ export default function RequestProof({
             const owner = claimData.owner;
             const witnessID = witness.id;
             const witnessUrl = witness.url;
+
+            try {
+              const res = await axios.post("/api/proof", {
+                data: {
+                  epoch,
+                  identifier,
+                  context,
+                  witnessID,
+                  witnessUrl,
+                  parameters,
+                  provider,
+                  timestamp,
+                  owner,
+                  signature,
+                  userId,
+                },
+              });
+              if (res) {
+                console.log("Proof posted successfully", res.data);
+              } else {
+                console.error("Failed to post proof");
+              }
+            } catch (error) {
+              console.error("Error posting proof:", error);
+            }
           },
           onFailureCallback: (error) => {
             console.error("Session failed:", error.message);

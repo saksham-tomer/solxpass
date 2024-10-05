@@ -47,16 +47,16 @@ model VerificationToken {
 }
 
 model User {
-  id             String    @id @default(cuid())
+  id             String      @id @default(cuid())
   name           String?
-  email          String?   @unique
-  emailVerified  DateTime? @map("email_verified")
+  email          String?     @unique
+  emailVerified  DateTime?   @map("email_verified")
   image          String?
   hashedPassword String?
   proofs         Proof[]
   signatures     Signature[]
-  tier           String @default("1")
-  range          String @default("1")
+  tier           String      @default("1")
+  range          String      @default("1")
   accounts       Account[]
   sessions       Session[]
 
@@ -64,32 +64,32 @@ model User {
 }
 
 model Proof {
-  id          String     @id @default(uuid()) // Unique identifier for the proof
-  signature   String?    // Signature from the proof
-  epoch       String        // Epoch from claimData
-  identifier  String     // Identifier from claimData
-  context     String     // Context from claimData
-  parameters  String?    // Parameters from claimData (this can be JSON)
-  provider    String     // Provider from claimData
-  timestamp   DateTime   @map("timestamp") // Timestamp in seconds, should be converted to DateTime
-  owner       String     // Owner from claimData
-  witnessID   String     // Witness ID from witness
-  witnessUrl  String     // Witness URL from witness
+  id         String   @id @default(uuid()) // Unique identifier for the proof
+  signature  String? // Signature from the proof
+  epoch      String // Epoch from claimData
+  identifier String // Identifier from claimData
+  context    String // Context from claimData
+  parameters String? // Parameters from claimData (this can be JSON)
+  provider   String // Provider from claimData
+  timestamp  DateTime @map("timestamp") // Timestamp in seconds, should be converted to DateTime
+  owner      String // Owner from claimData
+  witnessID  String // Witness ID from witness
+  witnessUrl String // Witness URL from witness
 
   // Relation fields
-  signatures  Signature[] // One-to-many relation to signatures
-  user        User        @relation(fields: [userId], references: [id])
-  userId      String
+  signatures Signature[] // One-to-many relation to signatures
+  user       User?       @relation(fields: [userId], references: [id])
+  userId     String
 
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Signature {
-  id        String  @id @default(uuid()) // Unique identifier for the signature
-  value     String  // Signature value
-  proofId   String  // Foreign key reference to Proof model
-  proof     Proof   @relation(fields: [proofId], references: [id])
-  user      User    @relation(fields: [userId], references: [id])
-  userId    String
+  id      String @id @default(uuid()) // Unique identifier for the signature
+  value   String // Signature value
+  proofId String // Foreign key reference to Proof model
+  proof   Proof  @relation(fields: [proofId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String
 }

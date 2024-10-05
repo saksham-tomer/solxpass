@@ -1,3 +1,4 @@
+import prisma from "@/lib/prismaDb";
 import { Reclaim } from "@reclaimprotocol/js-sdk";
 import { NextResponse } from "next/server";
 
@@ -65,5 +66,44 @@ export async function GET(req: Request) {
       status: 500,
       error: "Failed to generate signature",
     });
+  }
+}
+
+export async function POST(req: Request) {
+  const {
+    epoch,
+    identifier,
+    context,
+    witnessID,
+    witnessUrl,
+    parameters,
+    provider,
+    timestamp,
+    userId,
+    owner,
+    signature,
+  } = await req.json();
+  console.log(epoch, identifier, context, witnessID, witnessUrl);
+  try {
+    const res = await prisma.proof.create({
+      data: {
+        signature,
+        epoch,
+        identifier,
+        context,
+        owner,
+        parameters,
+        provider,
+        timestamp,
+        witnessID,
+        witnessUrl,
+        signatures: signature,
+        userId,
+      },
+    });
+    return NextResponse.json({ status: 200, data: res });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({ status: 500, error: "Failed to create proof" });
   }
 }
