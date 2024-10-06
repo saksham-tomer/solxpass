@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Reclaim } from "@reclaimprotocol/js-sdk";
 import QRCode from "react-qr-code";
 import { Clipboard } from "lucide-react";
@@ -21,6 +21,9 @@ export default function RequestProof({
   const [isLoading, setIsLoading] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
+  useEffect(() => {
+    console.log(providerData);
+  }, []);
   const reclaimClient = new Reclaim.ProofRequest(
     "f9f383fd-32d9-4c54-942f-5e9fda349762"
   );
@@ -33,7 +36,7 @@ export default function RequestProof({
       console.log("Requesting proof...");
 
       const response = await fetch(
-        `http://localhost:3000/api/proof?id=0&userId=103421949`,
+        `http://localhost:3000/api/proof?userId=${userId}&id=${providerData.id}`,
         {
           method: "GET",
           headers: {

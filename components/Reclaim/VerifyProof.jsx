@@ -7,14 +7,12 @@ import { idl as IDL } from "../../config/idl";
 import { sendTransactionAnchor } from "../../config/utils";
 import { ethers } from "ethers";
 
-/** Change the following keys as per the environment you are working on (devnet, mainnet, localnet) */
 const EPOCH_CONFIG_ADDRESS = new PublicKey(
-  "FUmVofehkRN6RG4CT8eeszswuqtDcZbCgVKMCQFLvgfY"
+  "Bj8P9vztGFwt49rqqu3B1zTofpxku18ppWQZmZaPdXgV"
 );
 
-// Reclaim program ID
 const RECLAIM_PROGRAM_ID = new PublicKey(
-  "8rYXFrtST4ePpMWcEqhazFyRG2DtCUqgtFmKT7FdjRyp"
+  "rEcLDWaVLaymz82eGr6cutosPxE6SEzw6q4pbtLuyqf"
 );
 
 const SEED_PREFIX = new TextEncoder().encode("reclaim");
@@ -28,12 +26,6 @@ function toU32Bytes(num) {
 
 export const PROGRAM_ADDRESS = "8rYXFrtST4ePpMWcEqhazFyRG2DtCUqgtFmKT7FdjRyp";
 
-/**
- * Program public key
- *
- * @category constants
- * @category generated
- */
 export const PROGRAM_ID = new PublicKey(PROGRAM_ADDRESS);
 
 function getEpochPda({ epochConfig, epochIdx, programId = PROGRAM_ID }) {
@@ -83,7 +75,6 @@ export default function VerifyProofButton(props) {
           new AnchorProvider(connection, wallet, { commitment: "confirmed" })
         );
 
-        // const epochIdx = await getEpochConfigEpochIndex(connection, EPOCH_CONFIG_ADDRESS);
         const epochIdx = epochIndex;
 
         // PDAs for reclaim
@@ -93,13 +84,7 @@ export default function VerifyProofButton(props) {
         });
 
         let verifyTx = await program.methods
-          .verifyProof({
-            // claimInfo: {
-            //     provider,
-            //     parameters,
-            //     contextAddress,
-            //     contextMessage,
-            // },
+          .verifyAndStore({
             signedClaim: {
               signatures: signatures.map((s) => serializeHash(s)),
               claimData: {

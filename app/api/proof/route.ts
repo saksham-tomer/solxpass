@@ -15,26 +15,17 @@ export async function GET(req: Request) {
     //const providerId = url.searchParams.get("id")
     const choice = url.searchParams.get("id");
     const userId = url.searchParams.get("userId");
-    // We will select the provider by passing in the array index in the query parameter ie. the array index such as 0 or 1
-    const providerIds: string[] = [
-      "6d3f6753-7ee6-49ee-a545-62f1b1822ae5",
-      "e83f3b89-cefa-4f63-bbed-deb0c94f7986",
-    ];
 
+    console.log(choice);
+
+    // We will select the provider by passing in the array index in the query parameter ie. the array index such as 0 or 1
     // Ensure the choice is a valid index
-    if (
-      choice === null ||
-      isNaN(Number(choice)) ||
-      Number(choice) < 0 ||
-      Number(choice) >= providerIds.length
-    ) {
+    if (choice === null) {
       throw new Error("Invalid provider choice");
     }
 
-    const providerId = providerIds[Number(choice)];
-
     // const APP_SECRET = process.env.RECLAIM_APP_SECRET;
-    const APP_SECRET = "";
+    const APP_SECRET = process.env.RECLAIM_APP_SECRET;
     if (!APP_SECRET) {
       throw new Error("RECLAIM_APP_SECRET is not defined");
     }
@@ -48,7 +39,7 @@ export async function GET(req: Request) {
     //you specify the provider ids while creating the app
     //in the frontend we want to choose from the list of given providers
     const sessionData = await reclaimClient.buildProofRequest(
-      "f9f383fd-32d9-4c54-942f-5e9fda349762",
+      choice,
       true,
       "V2Linking"
     );
