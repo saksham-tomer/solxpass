@@ -1,19 +1,21 @@
 "use client";
 
 import { cn } from "@/lib/index";
-import { Calendar, ChevronRight, Zap, Cpu, Globe } from "lucide-react";
+import { Calendar, Zap, Globe } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CyberpunkScoreBar from "./Progress";
 import AnimatedCyberpunkWalletBalance from "./PriceFeed";
+import ProofGraph from "./Chart";
 
 function Dash() {
   return (
     <div className="min-w-full min-h-screen bg-gray-900 md:p-4 p-2">
-      <div className="pt-8 px-4 rounded-3xl bg-gray-800 pb-4 min-w-full flex flex-col md:flex-row">
-        <section className="md:w-3/4 flex flex-col items-center p-2 gap-4">
+      <div className="pt-8 px-4 mt-20 rounded-3xl bg-gray-800 pb-4 min-w-full flex flex-col md:flex-row">
+        <section className="md:w-3/4 flex flex-col items-center p-2 gap-6">
           <CardSection />
+          <ProofGraph />
           <ProviderGrid />
         </section>
         <section className="md:w-1/4 bg-gray-800 rounded-3xl p-2">

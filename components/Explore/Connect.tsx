@@ -5,7 +5,7 @@ import QRCode from "react-qr-code";
 import { Clipboard } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-
+import VerifyProofButton from "../Reclaim/VerifyProof";
 interface ProviderData {
   id: string;
   name: string;
@@ -20,6 +20,8 @@ export default function RequestProof({
   const [requestUrl, setRequestUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [proof, setProof] = useState({});
 
   useEffect(() => {
     console.log(providerData);
@@ -55,44 +57,53 @@ export default function RequestProof({
 
         await reclaimClient.startSession({
           onSuccessCallback: async (proofs) => {
+            setProof(proofs[0]);
             console.log("Proofs received:", proofs);
-            const claimData = proofs[0]?.claimData;
-            const witness = proofs[0]?.witnesses[0];
-            const signature = proofs[0]?.signatures[0];
-            const epoch = claimData.epoch;
-            const identifier = claimData.identifier;
-            const context = claimData.context;
-            const parameters = claimData.parameters;
-            const provider = claimData.provider;
-            const timestamp = claimData.timestampS;
-            const owner = claimData.owner;
-            const witnessID = witness.id;
-            const witnessUrl = witness.url;
+            (() => {
+              setInterval(() => {
+                setShowSuccess(true);
+                return setShowSuccess(false);
+              }, 1000);
+              return clearInterval;
+            })();
+            <VerifyProofButton proof={proof} />;
+            // const claimData = proofs[0]?.claimData;
+            // const witness = proofs[0]?.witnesses[0];
+            // const signature = proofs[0]?.signatures[0];
+            // const epoch = claimData.epoch;
+            // const identifier = claimData.identifier;
+            // const context = claimData.context;
+            // const parameters = claimData.parameters;
+            // const provider = claimData.provider;
+            // const timestamp = claimData.timestampS;
+            // const owner = claimData.owner;
+            // const witnessID = witness.id;
+            // const witnessUrl = witness.url;
 
-            try {
-              const res = await axios.post("/api/proof", {
-                data: {
-                  epoch,
-                  identifier,
-                  context,
-                  witnessID,
-                  witnessUrl,
-                  parameters,
-                  provider,
-                  timestamp,
-                  owner,
-                  signature,
-                  userId,
-                },
-              });
-              if (res) {
-                console.log("Proof posted successfully", res.data);
-              } else {
-                console.error("Failed to post proof");
-              }
-            } catch (error) {
-              console.error("Error posting proof:", error);
-            }
+            // try {
+            //   const res = await axios.post("/api/proof", {
+            //     data: {
+            //       epoch,
+            //       identifier,
+            //       context,
+            //       witnessID,
+            //       witnessUrl,
+            //       parameters,
+            //       provider,
+            //       timestamp,
+            //       owner,
+            //       signature,
+            //       userId,
+            //     },
+            //   });
+            //   if (res) {
+            //     console.log("Proof posted successfully", res.data);
+            //   } else {
+            //     console.error("Failed to post proof");
+            //   }
+            // } catch (error) {
+            //   console.error("Error posting proof:", error);
+            // }
           },
           onFailureCallback: (error) => {
             console.error("Session failed:", error.message);
@@ -120,6 +131,11 @@ export default function RequestProof({
       {requestUrl && (
         <>
           <div className="mb-4 p-4 bg-white rounded-lg">
+            {showSuccess && (
+              <div className="flex items-center justify-center">
+                <p className="text-green-500 text-sm">Success!</p>
+              </div>
+            )}
             <QRCode
               size={256}
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}

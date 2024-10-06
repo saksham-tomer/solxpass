@@ -38,7 +38,7 @@ const AnimatedBackground = () => {
 const ExplorePage = () => {
   const [category, setCategory] = useState("social_media");
   return (
-    <div className="w-full px-4 md:px-12 lg:px-20 xl:px-24 mt-14 flex flex-col items-center justify-center">
+    <div className="w-full px-4 md:px-12 lg:px-20 xl:px-24 mt-24 flex flex-col items-center justify-center">
       <AnimatedBackground />
       <NFTFixedSidebarFilter />
       <div className="w-full max-w-4xl p-6 sm:p-8 mx-auto pt-10 pb-24 min-h-[300px] rounded-3xl bg-gradient-to-r from-purple-400 to-green-400 relative ">

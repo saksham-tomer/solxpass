@@ -15,7 +15,8 @@ const CyberpunkWalletBalance = () => {
           const response = await axios.get(
             `/api/balance?walletAddress=${walletAddress.publicKey.toString()}`
           );
-          setBalance(response.data);
+          console.log(response.data);
+          // setBalance(response.data);
         }
       } catch (error) {
         console.error(
@@ -29,7 +30,7 @@ const CyberpunkWalletBalance = () => {
     const interval = setInterval(fetchBalance, 10000); // Update every 10 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [walletAddress.publicKey]);
 
   return (
     <div className="flex items-center justify-center h-auto min-h-[18rem] w-full max-w-md mx-auto rounded-lg p-4 sm:p-8 bg-gray-900">
