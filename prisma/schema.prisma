@@ -59,10 +59,40 @@ model User {
   range          String      @default("1")
   score          Int         @default(0)
   providers      String[]
+  bookmarks      Bookmark[]
+  tweets         Tweets[]
+  followers      String[]
+  topics         String[]
   accounts       Account[]
   sessions       Session[]
 
   @@map("users")
+}
+
+model Tweets {
+  id String @id @default(cuid())
+  tweet String
+  image String?
+  topic String?
+  likes Int?
+  score Int?
+  bookmarks Bookmark[]
+  comments String?
+  profile_image String?
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Bookmark {
+  id String @id @default(cuid())
+  tweetId String
+  tweet Tweets @relation(fields: [tweetId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // model Proof {

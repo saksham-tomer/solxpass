@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import EmojiPicker from "emoji-picker-react";
 import {
   Home,
   Search,
@@ -45,11 +46,8 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => (
       {[
         { icon: Home, label: "Home" },
         { icon: Search, label: "Explore" },
-        { icon: Bell, label: "Notifications" },
-        { icon: Mail, label: "Messages" },
         { icon: Bookmark, label: "Bookmarks" },
         { icon: User, label: "Profile" },
-        { icon: MoreHorizontal, label: "More" },
       ].map(({ icon: Icon, label }) => (
         <div
           key={label}
@@ -59,7 +57,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => (
         >
           <Icon
             className={`${
-              isCollapsed ? "w-6 h-6 lg:w-5 lg:h-5" : "w-5 h-5 mr-4"
+              isCollapsed ? "w-6 h-6 mr-2 lg:w-5 lg:h-5" : "w-5 h-5 mr-4"
             }`}
           />
           <span className={`${isCollapsed ? "hidden" : ""} lg:inline`}>
@@ -96,137 +94,212 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => (
 );
 
 // Main Feed Component
-const MainFeed = ({ posts, isLoading }) => (
-  <div className="flex-grow border-x border-gray-800 min-h-screen ml-16 lg:ml-64">
-    <div className="sticky top-0 bg-black bg-opacity-80 backdrop-blur-sm p-4 border-b border-gray-800 z-10">
-      <h1 className="text-xl font-bold">For you</h1>
-      <div className="flex mt-4 overflow-x-auto">
-        <div className="flex-shrink-0 text-center pb-3 border-b-4 border-blue-500 font-semibold px-4">
-          For you
-        </div>
-        <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
-          Following
-        </div>
-        <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
-          Open Source Software
-        </div>
-        <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
-          Open Source Contributors
-        </div>
-      </div>
-    </div>
+const MainFeed = ({ posts, isLoading }) => {
+  const [postContent, setPostContent] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [showLocationPicker, setShowLocationPicker] = useState(false);
 
-    <div className="p-4 border-b border-gray-800">
-      <div className="flex">
-        <img
-          src="/ape3.jpg"
-          alt="User"
-          className="w-12 h-12 rounded-full mr-4"
-        />
-        <div className="flex-grow">
-          <textarea
-            className="w-full bg-transparent text-xl resize-none"
-            placeholder="What is happening?!"
-            rows={2}
-          ></textarea>
-          <div className="flex flex-wrap justify-between items-center mt-4">
-            <div className="flex space-x-4 text-blue-500 mb-2 sm:mb-0">
-              <Image size={20} className="cursor-pointer" />
-              <BarChart2 size={20} className="cursor-pointer" />
-              <Smile size={20} className="cursor-pointer" />
-              <Calendar size={20} className="cursor-pointer" />
-              <MapPin size={20} className="cursor-pointer" />
-            </div>
-            <button className="bg-blue-500 text-white rounded-full px-4 py-2 font-bold hover:bg-blue-600 transition duration-200 w-full sm:w-auto">
-              Post
-            </button>
+  const handleEmojiClick = (emojiObject) => {
+    setPostContent((prevContent) => prevContent + emojiObject.emoji);
+    setShowEmojiPicker(false);
+  };
+  const handleLocationClick = async () => {
+    try {
+      const pos = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+      setShowLocationPicker(!showLocationPicker);
+    } catch (error) {
+      console.error("Error getting location:", error);
+    }
+  };
+
+  const handleLocationSelect = (location) => {
+    setPostContent((prevContent) => prevContent + ` 📍 ${location}`);
+    setShowLocationPicker(false);
+  };
+
+  return (
+    <div className="flex-grow border-x mt-20 border-gray-800 min-h-screen ml-16 lg:ml-64">
+      <div className="sticky top-0 bg-black bg-opacity-80 backdrop-blur-sm p-4 border-b border-gray-800 z-10">
+        <h1 className="text-xl font-bold">For you</h1>
+        <div className="flex mt-4 overflow-x-auto">
+          <div className="flex-shrink-0 text-center pb-3 border-b-4 border-blue-500 font-semibold px-4">
+            For you
+          </div>
+          <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
+            Following
+          </div>
+          <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
+            Open Source Software
+          </div>
+          <div className="flex-shrink-0 text-center pb-3 text-gray-500 px-4">
+            Open Source Contributors
           </div>
         </div>
       </div>
-    </div>
 
-    {isLoading
-      ? Array(2)
-          .fill()
-          .map((_, i) => (
-            <div key={i} className="animate-pulse p-4 border-b border-gray-800">
-              <div className="flex">
-                <div className="w-12 h-12 bg-gray-700 rounded-full mr-4"></div>
+      <div className="p-4 border-b border-gray-800">
+        <div className="flex">
+          <img
+            src="/ape3.jpg"
+            alt="User"
+            className="w-12 h-12 rounded-full mr-4"
+          />
+          <div className="flex-grow">
+            <textarea
+              className="w-full bg-transparent text-xl resize-none"
+              placeholder="What is happening?!"
+              rows={2}
+              value={postContent}
+              onChange={(e) => setPostContent(e.target.value)}
+            ></textarea>
+            <div className="flex flex-wrap justify-between items-center mt-4">
+              <div className="flex space-x-4 text-blue-500 mb-2 sm:mb-0">
+                <label htmlFor="file-input" className="cursor-pointer">
+                  <Image size={20} />
+                </label>
+                <input
+                  id="file-input"
+                  type="file"
+                  className="hidden"
+                  accept="image/*"
+                />
+                <Smile
+                  size={20}
+                  className="cursor-pointer"
+                  onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                />
+                <MapPin
+                  size={20}
+                  className="cursor-pointer"
+                  onClick={handleLocationClick}
+                />
+              </div>
+              <button className="bg-blue-500 text-white rounded-full px-4 py-2 font-bold hover:bg-blue-600 transition duration-200 w-full sm:w-auto">
+                Post
+              </button>
+            </div>
+            {showEmojiPicker && (
+              <div className="mt-2">
+                <EmojiPicker onEmojiClick={handleEmojiClick} />
+              </div>
+            )}
+            {showLocationPicker && (
+              <div className="mt-2 bg-gray-900 rounded-md p-2">
+                <p className="text-sm mb-2">Select a location:</p>
+                <ul>
+                  <li
+                    className="cursor-pointer hover:bg-gray-800 p-1 rounded"
+                    onClick={() => handleLocationSelect("New York, NY")}
+                  >
+                    New York, NY
+                  </li>
+                  <li
+                    className="cursor-pointer hover:bg-gray-800 p-1 rounded"
+                    onClick={() => handleLocationSelect("Los Angeles, CA")}
+                  >
+                    Los Angeles, CA
+                  </li>
+                  <li
+                    className="cursor-pointer hover:bg-gray-800 p-1 rounded"
+                    onClick={() => handleLocationSelect("Chicago, IL")}
+                  >
+                    Chicago, IL
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {isLoading
+        ? Array(2)
+            .fill()
+            .map((_, i) => (
+              <div
+                key={i}
+                className="animate-pulse p-4 border-b border-gray-800"
+              >
+                <div className="flex">
+                  <div className="w-12 h-12 bg-gray-700 rounded-full mr-4"></div>
+                  <div className="flex-grow">
+                    <div className="h-4 bg-gray-700 rounded w-1/4 mb-2"></div>
+                    <div className="h-4 bg-gray-700 rounded w-1/2 mb-4"></div>
+                    <div className="h-40 bg-gray-700 rounded mb-4"></div>
+                    <div className="flex flex-wrap justify-between">
+                      {Array(4)
+                        .fill()
+                        .map((_, j) => (
+                          <div
+                            key={j}
+                            className="w-12 h-4 bg-gray-700 rounded mb-2 sm:mb-0"
+                          ></div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+        : posts.map((post) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="p-4 border-b border-gray-800 hover:bg-gray-900 transition duration-200"
+            >
+              <div className="flex flex-col sm:flex-row">
+                <img
+                  src="/ape2.jpg"
+                  alt={post.author}
+                  className="w-12 h-12 rounded-full mr-4 mb-4 sm:mb-0"
+                />
                 <div className="flex-grow">
-                  <div className="h-4 bg-gray-700 rounded w-1/4 mb-2"></div>
-                  <div className="h-4 bg-gray-700 rounded w-1/2 mb-4"></div>
-                  <div className="h-40 bg-gray-700 rounded mb-4"></div>
-                  <div className="flex flex-wrap justify-between">
-                    {Array(4)
-                      .fill()
-                      .map((_, j) => (
-                        <div
-                          key={j}
-                          className="w-12 h-4 bg-gray-700 rounded mb-2 sm:mb-0"
-                        ></div>
-                      ))}
+                  <div className="flex flex-wrap items-center">
+                    <span className="font-bold mr-2">{post.author}</span>
+                    <span className="text-gray-500 mr-2">{post.username}</span>
+                    <span className="text-gray-500">· Oct 1</span>
+                  </div>
+                  <p className="mt-2">{post.content}</p>
+                  {post.image && (
+                    <img
+                      src={"/ape3.jpg"}
+                      alt="Post content"
+                      className="mt-4 rounded-2xl w-full"
+                    />
+                  )}
+                  <div className="flex flex-wrap justify-between mt-4 text-gray-500">
+                    <div className="flex items-center hover:text-blue-500 mb-2 sm:mb-0">
+                      <MessageCircle size={18} className="mr-2" />
+                      {post.comments}
+                    </div>
+                    <div className="flex items-center hover:text-green-500 mb-2 sm:mb-0">
+                      <Repeat size={18} className="mr-2" />
+                      {post.reposts}
+                    </div>
+                    <div className="flex items-center hover:text-red-500 mb-2 sm:mb-0">
+                      <Heart size={18} className="mr-2" />
+                      {post.likes}
+                    </div>
+                    <div className="flex items-center hover:text-blue-500 mb-2 sm:mb-0">
+                      <BarChart2 size={18} className="mr-2" />
+                      {post.views}
+                    </div>
+                    <Share size={18} className="hover:text-blue-500" />
                   </div>
                 </div>
               </div>
-            </div>
-          ))
-      : posts.map((post) => (
-          <motion.div
-            key={post.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="p-4 border-b border-gray-800 hover:bg-gray-900 transition duration-200"
-          >
-            <div className="flex flex-col sm:flex-row">
-              <img
-                src="/ape2.jpg"
-                alt={post.author}
-                className="w-12 h-12 rounded-full mr-4 mb-4 sm:mb-0"
-              />
-              <div className="flex-grow">
-                <div className="flex flex-wrap items-center">
-                  <span className="font-bold mr-2">{post.author}</span>
-                  <span className="text-gray-500 mr-2">{post.username}</span>
-                  <span className="text-gray-500">· Oct 1</span>
-                </div>
-                <p className="mt-2">{post.content}</p>
-                {post.image && (
-                  <img
-                    src={"/ape3.jpg"}
-                    alt="Post content"
-                    className="mt-4 rounded-2xl w-full"
-                  />
-                )}
-                <div className="flex flex-wrap justify-between mt-4 text-gray-500">
-                  <div className="flex items-center hover:text-blue-500 mb-2 sm:mb-0">
-                    <MessageCircle size={18} className="mr-2" />
-                    {post.comments}
-                  </div>
-                  <div className="flex items-center hover:text-green-500 mb-2 sm:mb-0">
-                    <Repeat size={18} className="mr-2" />
-                    {post.reposts}
-                  </div>
-                  <div className="flex items-center hover:text-red-500 mb-2 sm:mb-0">
-                    <Heart size={18} className="mr-2" />
-                    {post.likes}
-                  </div>
-                  <div className="flex items-center hover:text-blue-500 mb-2 sm:mb-0">
-                    <BarChart2 size={18} className="mr-2" />
-                    {post.views}
-                  </div>
-                  <Share size={18} className="hover:text-blue-500" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-  </div>
-);
+            </motion.div>
+          ))}
+    </div>
+  );
+};
 
 // Right Sidebar Component
 const RightSidebar = () => (
-  <div className="w-80 p-4 hidden lg:block">
+  <div className="w-80 p-4 hidden mt-16 lg:block">
     <div className="sticky top-0 pt-4">
       <div className="relative mb-4">
         <input

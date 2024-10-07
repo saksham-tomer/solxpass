@@ -1,362 +1,362 @@
 [
   {
     "id": 1,
-    "tier": "Animal",
-    "rank": 3,
-    "imageUrl": "https://example.com/avatars/animal1.png",
-    "name": "Leo the Lion",
-    "verifiedDataPoints": ["GitHub", "LinkedIn"],
-    "totalScore": 750
+    "name": "Monkey",
+    "tier": 1,
+    "range": 1,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(19).jpeg",
+    "uri": "https://devnet.irys.xyz/Cpw9MCX23P2rDWAfGJXgKAHpvg3a1pz6GNfRKo8bWHKz"
   },
   {
     "id": 2,
-    "tier": "Animal",
-    "rank": 7,
-    "imageUrl": "https://example.com/avatars/animal2.png",
-    "name": "Ellie the Elephant",
-    "verifiedDataPoints": ["Twitter", "GitHub", "Amazon"],
-    "totalScore": 620
+    "name": "Deer",
+    "tier": 1,
+    "range": 2,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(17).jpeg",
+    "uri": "https://devnet.irys.xyz/8voZUqAi2h3oVEY7dG16aaMLhDo4ywaj51zefJvvF8oP"
   },
   {
     "id": 3,
-    "tier": "Animal",
-    "rank": 2,
-    "imageUrl": "https://example.com/avatars/animal3.png",
-    "name": "Gerry the Giraffe",
-    "verifiedDataPoints": ["LinkedIn", "Amazon"],
-    "totalScore": 810
+    "name": "Panda",
+    "tier": 1,
+    "range": 3,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(21).jpeg",
+    "uri": "https://devnet.irys.xyz/2pbfZ4PAe8ZotzhS97VVgpHJmGgNUnk7kdA2w3fmnv3b"
   },
   {
     "id": 4,
-    "tier": "Animal",
-    "rank": 9,
-    "imageUrl": "https://example.com/avatars/animal4.png",
-    "name": "Penny the Penguin",
-    "verifiedDataPoints": ["GitHub"],
-    "totalScore": 540
+    "name": "Giraffe",
+    "tier": 1,
+    "range": 4,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(22).jpeg",
+    "uri": "https://devnet.irys.xyz/BXhGi5eNGXeCUM6bCkBTvGa5HVrjaXqLR6xdP3GAkiVQ"
   },
   {
     "id": 5,
-    "tier": "Animal",
-    "rank": 5,
-    "imageUrl": "https://example.com/avatars/animal5.png",
-    "name": "Ollie the Owl",
-    "verifiedDataPoints": ["LinkedIn", "Twitter", "GitHub"],
-    "totalScore": 680
+    "name": "Hippo",
+    "tier": 1,
+    "range": 5,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(23).jpeg",
+    "uri": "https://devnet.irys.xyz/jVsY114rtxSpXmRz8qXNN3XXK9tSBdPNMKkVW99pTGa"
   },
   {
     "id": 6,
-    "tier": "Animal",
-    "rank": 1,
-    "imageUrl": "https://example.com/avatars/animal6.png",
-    "name": "Tina the Tiger",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon", "Twitter"],
-    "totalScore": 920
+    "name": "Lion",
+    "tier": 1,
+    "range": 10,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(26).jpeg",
+    "uri": "https://devnet.irys.xyz/2azGkvs4GTSjiSMNrxm4N4qS1RGorfbcUh6dRGUAEL37"
   },
   {
     "id": 7,
-    "tier": "Animal",
-    "rank": 8,
-    "imageUrl": "https://example.com/avatars/animal7.png",
-    "name": "Kangy the Kangaroo",
-    "verifiedDataPoints": ["Twitter"],
-    "totalScore": 580
+    "name": "Fox",
+    "tier": 1,
+    "range": 6,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(27).jpeg",
+    "uri": "https://devnet.irys.xyz/SruX3jEww2owoyGg2xe4M5sSjuL42Y5y7yRXj747L8e"
   },
   {
     "id": 8,
-    "tier": "Animal",
-    "rank": 4,
-    "imageUrl": "https://example.com/avatars/animal8.png",
-    "name": "Ziggy the Zebra",
-    "verifiedDataPoints": ["GitHub", "Amazon"],
-    "totalScore": 730
+    "name": "Wolf",
+    "tier": 1,
+    "range": 7,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(28).jpeg",
+    "uri": "https://devnet.irys.xyz/4GtMwxtNG3tJAPUStrCMUY9fXqeVcg2eDkEFqK9jHmrf"
   },
   {
     "id": 9,
-    "tier": "Animal",
-    "rank": 6,
-    "imageUrl": "https://example.com/avatars/animal9.png",
-    "name": "Hippo Harry",
-    "verifiedDataPoints": ["LinkedIn", "Twitter"],
-    "totalScore": 650
+    "name": "Snow leopard",
+    "tier": 1,
+    "range": 8,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(30).jpeg",
+    "uri": "https://devnet.irys.xyz/5vEXdyByv2LPxTaGRnNueTL7Vu26cFzYUWmmujsHe7ai"
   },
   {
     "id": 10,
-    "tier": "Animal",
-    "rank": 10,
-    "imageUrl": "https://example.com/avatars/animal10.png",
-    "name": "Koala Kate",
-    "verifiedDataPoints": ["Amazon"],
-    "totalScore": 500
+    "name": "Tiger",
+    "tier": 1,
+    "range": 9,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(34).jpeg",
+    "uri": "https://devnet.irys.xyz/BtcfB87ahfgbgRxyRhobQNrS4p5YSsJMfoUQLgr5FbB3"
   },
   {
     "id": 11,
-    "tier": "Dinosaur",
-    "rank": 3,
-    "imageUrl": "https://example.com/avatars/dino1.png",
-    "name": "Rex the T-Rex",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter"],
-    "totalScore": 1750
+    "name": "Stompy Rex",
+    "tier": 2,
+    "range": 9,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(38).jpeg",
+    "uri": "https://devnet.irys.xyz/6DkDFHMxYTv9bEESSkx77v3KC7FRR2TyHMf2FvFTR8JM"
   },
   {
     "id": 12,
-    "tier": "Dinosaur",
-    "rank": 7,
-    "imageUrl": "https://example.com/avatars/dino2.png",
-    "name": "Trixie the Triceratops",
-    "verifiedDataPoints": ["LinkedIn", "Amazon"],
-    "totalScore": 1620
+    "name": "Roary the Raptor",
+    "tier": 2,
+    "range": 8,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(39).jpeg",
+    "uri": "https://devnet.irys.xyz/6PoSk5tsBytYmRFfkXxZuNBEJZgGimYRyGaUzmyamzpk"
   },
   {
     "id": 13,
-    "tier": "Dinosaur",
-    "rank": 2,
-    "imageUrl": "https://example.com/avatars/dino3.png",
-    "name": "Velo the Velociraptor",
-    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
-    "totalScore": 1810
+    "name": "Spike the Stego",
+    "tier": 2,
+    "range": 1,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(40).jpeg",
+    "uri": "https://devnet.irys.xyz/U9jH8BDbVLUDxkZPRYkpZqAvHxyMHZFjDwbNxz8inNu"
   },
   {
     "id": 14,
-    "tier": "Dinosaur",
-    "rank": 9,
-    "imageUrl": "https://example.com/avatars/dino4.png",
-    "name": "Bronto the Brontosaurus",
-    "verifiedDataPoints": ["LinkedIn"],
-    "totalScore": 1540
+    "name": "Chomper the Dino",
+    "tier": 2,
+    "range": 2,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(42).jpeg",
+    "uri": "https://devnet.irys.xyz/JocK4uEfFQRxdAwShqewBRKfVaEEwvXG7XrCjXqNCJj"
   },
   {
     "id": 15,
-    "tier": "Dinosaur",
-    "rank": 5,
-    "imageUrl": "https://example.com/avatars/dino5.png",
-    "name": "Stego the Stegosaurus",
-    "verifiedDataPoints": ["GitHub", "Amazon"],
-    "totalScore": 1680
+    "name": "Thunderclaw",
+    "tier": 2,
+    "range": 4,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(43).jpeg",
+    "uri": "https://devnet.irys.xyz/6sxkHbTMBymKhVkthnnayV2PB4CQFayZerB5F3YBrjmy"
   },
   {
     "id": 16,
-    "tier": "Dinosaur",
-    "rank": 1,
-    "imageUrl": "https://example.com/avatars/dino6.png",
-    "name": "Ptero the Pterodactyl",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
-    "totalScore": 1920
+    "name": "Blitzsaur",
+    "tier": 2,
+    "range": 3,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(44).jpeg",
+    "uri": "https://devnet.irys.xyz/5ZWs1yAiSQqNX8c2XqQ1zce2gGLn8oZGNxNzQYcgpa9a"
   },
   {
     "id": 17,
-    "tier": "Dinosaur",
-    "rank": 8,
-    "imageUrl": "https://example.com/avatars/dino7.png",
-    "name": "Anky the Ankylosaurus",
-    "verifiedDataPoints": ["Twitter", "Amazon"],
-    "totalScore": 1580
+    "name": "Frostbite Rex",
+    "tier": 2,
+    "range": 5,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(45).jpeg",
+    "uri": "https://devnet.irys.xyz/22aAZ8ZUBRshabwXynsusr79z2bGEzUmJYyE1YJrtMyg"
   },
   {
     "id": 18,
-    "tier": "Dinosaur",
-    "rank": 4,
-    "imageUrl": "https://example.com/avatars/dino8.png",
-    "name": "Diplo the Diplodocus",
-    "verifiedDataPoints": ["GitHub", "LinkedIn"],
-    "totalScore": 1730
+    "name": "Shadowclaw",
+    "tier": 2,
+    "range": 6,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(46).jpeg",
+    "uri": "https://devnet.irys.xyz/EfVTdJmuviAxqxm4A7ytKdq5iGPA2FUyQR9sG89exmXG"
   },
   {
     "id": 19,
-    "tier": "Dinosaur",
-    "rank": 6,
-    "imageUrl": "https://example.com/avatars/dino9.png",
-    "name": "Allo the Allosaurus",
-    "verifiedDataPoints": ["LinkedIn", "Twitter"],
-    "totalScore": 1650
+    "name": "Rumblehorn",
+    "tier": 2,
+    "range": 7,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(47).jpeg",
+    "uri": "https://devnet.irys.xyz/5jWWyrhnL44uRUcmgpZK8XwcQoWbizr3cHD4CehMLsrc"
   },
   {
     "id": 20,
-    "tier": "Dinosaur",
-    "rank": 10,
-    "imageUrl": "https://example.com/avatars/dino10.png",
-    "name": "Pachy the Pachycephalosaurus",
-    "verifiedDataPoints": ["Amazon"],
-    "totalScore": 1500
+    "name": "Spikestrike",
+    "tier": 2,
+    "range": 10,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(48).jpeg",
+    "uri": "https://devnet.irys.xyz/CL9mB8BD7orS9cW5MCea7tzFZTjdHKK2rtKuNpMm9UeH"
   },
   {
     "id": 21,
-    "tier": "Alien",
-    "rank": 3,
-    "imageUrl": "https://example.com/avatars/alien1.png",
-    "name": "Zorb from Zeta Reticuli",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
-    "totalScore": 2750
+    "name": "Blaster Xeno",
+    "tier": 3,
+    "range": 1,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(50).jpeg",
+    "uri": "https://devnet.irys.xyz/4DkpP8NRRdAhdwpyeEaxsRnBe8e4K8ApADeESoeiTH2A"
   },
   {
     "id": 22,
-    "tier": "Alien",
-    "rank": 7,
-    "imageUrl": "https://example.com/avatars/alien2.png",
-    "name": "Xylon of Andromeda",
-    "verifiedDataPoints": ["LinkedIn", "Twitter"],
-    "totalScore": 2620
+    "name": "Sneaker Nova",
+    "tier": 3,
+    "range": 10,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(51).jpeg",
+    "uri": "https://devnet.irys.xyz/7iq2fy2GaHtukciuh2yMegZ3b7eyqCDXc4Megjcbk629"
   },
   {
     "id": 23,
-    "tier": "Alien",
-    "rank": 2,
-    "imageUrl": "https://example.com/avatars/alien3.png",
-    "name": "Quix from Quasar 7",
-    "verifiedDataPoints": ["GitHub", "Amazon", "LinkedIn"],
-    "totalScore": 2810
+    "name": "Gucci Glint",
+    "tier": 3,
+    "range": 7,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(52).jpeg",
+    "uri": "https://devnet.irys.xyz/F3Hin3PCcjF4KvENMuyqRrF5VfJUrrVika7L4Z8PmeHs"
   },
   {
     "id": 24,
-    "tier": "Alien",
-    "rank": 9,
-    "imageUrl": "https://example.com/avatars/alien4.png",
-    "name": "Nebu of Nebula Nibiru",
-    "verifiedDataPoints": ["Twitter"],
-    "totalScore": 2540
+    "name": "Cap’n Cosmos",
+    "tier": 3,
+    "range": 2,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(53).jpeg",
+    "uri": "https://devnet.irys.xyz/DETnSDFgpd3YKSbnnx8LNgTrbtrZWU8rjuTX1knSH6PH"
   },
   {
     "id": 25,
-    "tier": "Alien",
-    "rank": 5,
-    "imageUrl": "https://example.com/avatars/alien5.png",
-    "name": "Gamma from Galaxy X",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon"],
-    "totalScore": 2680
+    "name": "Chillin’Couture",
+    "tier": 3,
+    "range": 3,
+    "category": "animal",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(54).jpeg",
+    "uri": "https://devnet.irys.xyz/3ybRTJ7RyLFHvhSeTVoTPDkKsSqNWXoCuuCi3nuVtJF5"
   },
   {
     "id": 26,
-    "tier": "Alien",
-    "rank": 1,
-    "imageUrl": "https://example.com/avatars/alien6.png",
-    "name": "Alpha of Antares",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
-    "totalScore": 2920
+    "name": "Witchy Wobble",
+    "tier": 2,
+    "range": 4,
+    "category": "dinosaur",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(55).jpeg",
+    "uri": "https://devnet.irys.xyz/HSFz7LZnj578xBap6hUPFfnTQrTTgoGPKgQtK2vkD9hT"
   },
   {
     "id": 27,
-    "tier": "Alien",
-    "rank": 8,
-    "imageUrl": "https://example.com/avatars/alien7.png",
-    "name": "Pulsar Pete",
-    "verifiedDataPoints": ["GitHub", "Twitter"],
-    "totalScore": 2580
+    "name": "Gogglehead",
+    "tier": 3,
+    "range": 5,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(56).jpeg",
+    "uri": "https://devnet.irys.xyz/2Rz8gUBWLZZA9ZCbU2YsG2cn8UqPr2jm15BJFbD5LyeJ"
   },
   {
     "id": 28,
-    "tier": "Alien",
-    "rank": 4,
-    "imageUrl": "https://example.com/avatars/alien8.png",
-    "name": "Cosmo from Cygnus X-1",
-    "verifiedDataPoints": ["LinkedIn", "Amazon"],
-    "totalScore": 2730
+    "name": "Level Up Luma",
+    "tier": 4,
+    "range": 9,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(57).jpeg",
+    "uri": "https://devnet.irys.xyz/ECQpBRasRSXEsVYFGacuAMX7KHPXKr2FgteSNia48y6S"
   },
   {
     "id": 29,
-    "tier": "Alien",
-    "rank": 6,
-    "imageUrl": "https://example.com/avatars/alien9.png",
-    "name": "Nova from Nexus 6",
-    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
-    "totalScore": 2650
+    "name": "Nebula Notes",
+    "tier": 3,
+    "range": 8,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(60).jpeg",
+    "uri": "https://devnet.irys.xyz/GwUDVcgzBRbQWajgY7hRkEhVionjJdtcRQSA99RczU4x"
   },
   {
     "id": 30,
-    "tier": "Alien",
-    "rank": 10,
-    "imageUrl": "https://example.com/avatars/alien10.png",
-    "name": "Stardust Stella",
-    "verifiedDataPoints": ["LinkedIn"],
-    "totalScore": 2500
+    "name": "Surfing Surge",
+    "tier": 3,
+    "range": 6,
+    "category": "alien",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(61).jpeg",
+    "uri": "https://devnet.irys.xyz/4qrnYfb7fHwRorVmViYGLWXvknQtf1RHbEKAzMGsusYv"
   },
   {
     "id": 31,
-    "tier": "Superhero",
-    "rank": 3,
-    "imageUrl": "https://example.com/avatars/hero1.png",
-    "name": "Captain Codebreaker",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
-    "totalScore": 3750
+    "name": "Superman",
+    "tier": 4,
+    "range": 7,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(68).jpeg",
+    "uri": "https://devnet.irys.xyz/Eqk2svVQ8znfCzHqKnyV4bJrbiUT4iyEJFpj9GZguHjt"
   },
   {
     "id": 32,
-    "tier": "Superhero",
-    "rank": 7,
-    "imageUrl": "https://example.com/avatars/hero2.png",
-    "name": "The Incredible Dev",
-    "verifiedDataPoints": ["GitHub", "LinkedIn"],
-    "totalScore": 3620
+    "name": "Batman",
+    "tier": 4,
+    "range": 8,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(71).jpeg",
+    "uri": "https://devnet.irys.xyz/9d9mmXSASVGCRKbUMCFpzyMz3DkcJ75ZMKNveWRn3usd"
   },
   {
     "id": 33,
-    "tier": "Superhero",
-    "rank": 2,
-    "imageUrl": "https://example.com/avatars/hero3.png",
-    "name": "Wonder Coder",
-    "verifiedDataPoints": ["GitHub", "Twitter", "Amazon"],
-    "totalScore": 3810
+    "name": "Worderwomen",
+    "tier": 4,
+    "range": 4,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(72).jpeg",
+    "uri": "https://devnet.irys.xyz/4kSRsfmzi5qdHcPsJZhGMGoC42SLpQiKYtVP51U7AURP"
   },
   {
     "id": 34,
-    "tier": "Superhero",
-    "rank": 9,
-    "imageUrl": "https://example.com/avatars/hero4.png",
-    "name": "The Flash Debugger",
-    "verifiedDataPoints": ["LinkedIn", "Twitter"],
-    "totalScore": 3540
+    "name": "Ironman",
+    "tier": 4,
+    "range": 10,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(74).jpeg",
+    "uri": "https://devnet.irys.xyz/3MBKVpBXJ3NSM5Qds2XHcYq94BbxcLsiSVXDvyARxSUY"
   },
   {
     "id": 35,
-    "tier": "Superhero",
-    "rank": 5,
-    "imageUrl": "https://example.com/avatars/hero5.png",
-    "name": "Iron Programmer",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Amazon"],
-    "totalScore": 3680
+    "name": "Thor",
+    "tier": 4,
+    "range": 5,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(77).jpeg",
+    "uri": "https://devnet.irys.xyz/39xMHJgzv7EHqSHbmCVSqNKcDsgcPoUVTqpPm14qoa1a"
   },
   {
     "id": 36,
-    "tier": "Superhero",
-    "rank": 1,
-    "imageUrl": "https://example.com/avatars/hero6.png",
-    "name": "Doctor Datastream",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter", "Amazon"],
-    "totalScore": 3920
+    "name": "Captain America",
+    "tier": 4,
+    "range": 6,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(79).jpeg",
+    "uri": "https://devnet.irys.xyz/E2tP7KngTBBWrtwUQDyDg7oKAeVAJTrb3DxziVZygXjb"
   },
   {
     "id": 37,
-    "tier": "Superhero",
-    "rank": 8,
-    "imageUrl": "https://example.com/avatars/hero7.png",
-    "name": "The Green Googler",
-    "verifiedDataPoints": ["GitHub", "Twitter"],
-    "totalScore": 3580
+    "name": "Spiderman",
+    "tier": 4,
+    "range": 9,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(81).jpeg",
+    "uri": "https://devnet.irys.xyz/3nCDYYvxDW4YcksFt7nJsfgM1K9UnUMiidEnyjejCV87"
   },
   {
     "id": 38,
-    "tier": "Superhero",
-    "rank": 4,
-    "imageUrl": "https://example.com/avatars/hero8.png",
-    "name": "Aqua Algorithm",
-    "verifiedDataPoints": ["LinkedIn", "Amazon"],
-    "totalScore": 3730
+    "name": "Deadpool",
+    "tier": 4,
+    "range": 3,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(83).jpeg",
+    "uri": "https://devnet.irys.xyz/83VYNX7VhGz7WewrfhSN9Ud9neUA7Mt4Ra4FYa2sqHfZ"
   },
   {
     "id": 39,
-    "tier": "Superhero",
-    "rank": 6,
-    "imageUrl": "https://example.com/avatars/hero9.png",
-    "name": "Black Blockchain",
-    "verifiedDataPoints": ["GitHub", "LinkedIn", "Twitter"],
-    "totalScore": 3650
+    "name": "Doctor Strange",
+    "tier": 4,
+    "range": 1,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(88).jpeg",
+    "uri": "https://devnet.irys.xyz/6LGMBqAsnwbXmpes6CYK3njRuqVTVDPpcq7cwr4iLYwj"
   },
   {
     "id": 40,
-    "tier": "Superhero",
-    "rank": 10,
-    "imageUrl": "https://example.com/avatars/hero10.png",
-    "name": "Captain Console",
-    "verifiedDataPoints": ["Amazon"],
-    "totalScore": 3500
+    "name": "Hulk",
+    "tier": 4,
+    "range": 2,
+    "category": "superhero",
+    "image_url": "https://sakshamnftdata.s3.amazonaws.com/dreamimages/Designer+(90).jpeg",
+    "uri": "https://devnet.irys.xyz/7LXj8o1tuAjjoe2LaJsga1WJELUmtF8EgShzh5mUuqSo"
   }
 ]
