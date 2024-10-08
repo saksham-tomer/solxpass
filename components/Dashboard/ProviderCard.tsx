@@ -5,19 +5,15 @@ import { useState } from "react";
 
 interface ProviderCardProps {
   category: string;
-  imageSrc: string;
-  title: string;
-  highestBid: string;
-  currency: string;
+  name: string;
+  score: number;
   description: string;
 }
 
 export default function ProviderCard({
   category,
-  imageSrc,
-  title,
-  highestBid,
-  currency,
+  name,
+  score,
   description,
 }: ProviderCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -41,19 +37,19 @@ export default function ProviderCard({
             <div className="relative h-full z-10 bg-gray-900 rounded-xl p-4 flex flex-col">
               <div className="flex-grow">
                 <Image
-                  src={imageSrc}
-                  alt={title}
+                  src={`/${name.slice(0, name.indexOf(" ")).toLowerCase()}.png`}
+                  alt={name}
                   width={224}
                   height={224}
                   className="w-full h-56 object-cover rounded-lg"
                 />
               </div>
               <div className="mt-4 text-cyan-300">
-                <h3 className="text-lg font-semibold">{title}</h3>
+                <h3 className="text-lg font-semibold">{name}</h3>
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-sm text-cyan-400">Highest Bid</span>
+                  <span className="text-sm text-cyan-400">Score</span>
                   <span className="text-lg font-bold text-pink-500">
-                    {highestBid} {currency}
+                    {score}
                   </span>
                 </div>
               </div>
@@ -68,13 +64,11 @@ export default function ProviderCard({
           <div className="w-full h-full p-1 rounded-2xl overflow-hidden bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 animate-gradient-x">
             <div className="absolute inset-[3px] z-0 bg-gray-900 rounded-2xl"></div>
             <div className="relative h-full z-10 bg-gray-900 rounded-xl p-6 flex flex-col justify-center items-center text-cyan-300">
-              <h3 className="text-xl font-semibold mb-4">{title}</h3>
+              <h3 className="text-xl font-semibold mb-4">{name}</h3>
               <p className="text-sm text-center mb-4">{description}</p>
               <div className="mt-auto">
-                <p className="text-sm text-cyan-400">Current Highest Bid</p>
-                <p className="text-lg font-bold text-pink-500">
-                  {highestBid} {currency}
-                </p>
+                <p className="text-sm text-cyan-400">Score</p>
+                <p className="text-lg font-bold text-pink-500">{score}</p>
               </div>
             </div>
           </div>

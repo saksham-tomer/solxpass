@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
- eslint: {
+  eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  images: {
+    domains: ["sakshamnftdata.s3.amazonaws.com", "lh3.googleusercontent.com"],
   },
 };
 

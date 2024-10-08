@@ -320,7 +320,7 @@ const RightSidebar = () => (
         </button>
       </div>
       <div className="bg-gray-900 rounded-2xl p-4 mb-4">
-        <h2 className="text-xl font-bold mb-4">What's happening</h2>
+        <h2 className="text-xl font-bold mb-4">What&apos;s happening</h2>
         <div className="mb-4">
           <span className="text-xs text-gray-500">
             US national news · This morning

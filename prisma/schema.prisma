@@ -58,8 +58,9 @@ model User {
   tier           String      @default("1")
   range          String      @default("1")
   score          Int         @default(0)
-  providers      String[]
+  providers      Providers[]
   bookmarks      Bookmark[]
+  userscore      Int         @default(0)
   tweets         Tweets[]
   followers      String[]
   topics         String[]
@@ -67,6 +68,17 @@ model User {
   sessions       Session[]
 
   @@map("users")
+}
+
+model Providers {
+  id String @id @default(cuid())
+  name String
+  signatures     String[]
+  score Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  userId String
 }
 
 model Tweets {

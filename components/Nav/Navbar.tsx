@@ -10,15 +10,18 @@ import {
   RiShieldCheckLine,
 } from "react-icons/ri";
 import WalletConnection from "./WalletAdapter";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [balance, setBalance] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [isWalletOpen, setIsWalletOpen] = useState(false);
   const { publicKey, connected } = useWallet();
   const { connection } = useConnection();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -48,7 +51,6 @@ const Navbar = () => {
   }, [connected, publicKey, connection]);
 
   useEffect(() => {
-    // Check for user's preference in localStorage or system preference
     const savedMode = localStorage.getItem("darkMode");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -58,13 +60,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Apply dark mode class to the document
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-    // Save preference to localStorage
     localStorage.setItem("darkMode", isDarkMode.toString());
   }, [isDarkMode]);
 
@@ -157,9 +157,28 @@ const Navbar = () => {
                   </motion.div>
                 </AnimatePresence>
               </motion.button>
-              <div className="relative">
-                <WalletConnection />
-                {connected && balance !== null && (
+              {session ? (
+                <button
+                  onClick={() => signOut()}
+                  className="bg-gradient-to-r from-cyan-400 hidden md:flex py-2 px-6 text-base to-purple-500 text-black font-bold rounded-lg hover:from-cyan-500 hover:via-pink-600 hover:to-purple-600 transition-all duration-300 shadow-neon border border-cyan-300 animate-pulse"
+                >
+                  <span className="text-white">Sign Out</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => signIn()}
+                  className="bg-gradient-to-r from-cyan-400 hidden md:flex py-2 px-6 text-base to-purple-500 text-black font-bold rounded-lg hover:from-cyan-500 hover:via-pink-600 hover:to-purple-600 transition-all duration-300 shadow-neon border border-cyan-300 animate-pulse"
+                >
+                  <span className="text-white">Sign In</span>
+                </button>
+              )}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsWalletOpen(true)}
+                onMouseLeave={() => setIsWalletOpen(false)}
+              >
+                <WalletMultiButton />
+                {connected && balance !== null && isWalletOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}

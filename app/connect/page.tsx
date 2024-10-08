@@ -41,10 +41,9 @@ export default function RequestProof() {
             const signatures = proofs[0]?.signatures;
             if (signatures) {
               console.log("Signatures found:", signatures);
-              // Save the proofs in localStorage
-              // actually problm yhi h aise cases m jb apko multiple users aur unka data kahi store krna ho to localStorage is not a option because we dont know same device se kon kon kre konse account se kre, but isk liye prod level m jaane k baad hum ye proofs ko b solana pr save krenge then vha se nikalenge jese user aur posts fetch krhe h pr mvp k liye mne kya socha tha ki directly signature dalke jese wt a min
+          
               localStorage.setItem("savedSign", JSON.stringify(signatures));
-              // onProofGenerated(signatures); // Send signatures to the ProofModel component
+            
             } else {
               console.error("Signatures not found in the proofs object");
             }

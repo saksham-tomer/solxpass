@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { Reclaim } from "@reclaimprotocol/js-sdk";
 import QRCode from "react-qr-code";
-import { Clipboard } from "lucide-react";
+import { ArrowDown, CheckCircle, Clipboard } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { motion } from "framer-motion";
 import VerifyProofButton from "../Reclaim/VerifyProof";
 interface ProviderData {
   id: string;
@@ -21,7 +22,9 @@ export default function RequestProof({
   const [isLoading, setIsLoading] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showQr, setShowQr] = useState(true);
   const [proof, setProof] = useState({});
+  const [proofState, setProofState] = useState<boolean>(false);
 
   useEffect(() => {
     console.log(providerData);
@@ -63,10 +66,12 @@ export default function RequestProof({
               setInterval(() => {
                 setShowSuccess(true);
                 return setShowSuccess(false);
-              }, 1000);
+              }, 4000);
               return clearInterval;
             })();
-            <VerifyProofButton proof={proof} />;
+            setShowQr(false);
+            setProofState((prev) => (prev = true));
+            setShowSuccess(true);
             // const claimData = proofs[0]?.claimData;
             // const witness = proofs[0]?.witnesses[0];
             // const signature = proofs[0]?.signatures[0];
@@ -128,14 +133,9 @@ export default function RequestProof({
 
   return (
     <div className="flex flex-col items-center justify-center bg-gray-900 p-6 rounded-lg shadow-lg">
-      {requestUrl && (
+      {requestUrl && showQr && (
         <>
           <div className="mb-4 p-4 bg-white rounded-lg">
-            {showSuccess && (
-              <div className="flex items-center justify-center">
-                <p className="text-green-500 text-sm">Success!</p>
-              </div>
-            )}
             <QRCode
               size={256}
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}
@@ -151,6 +151,50 @@ export default function RequestProof({
             {isCopied ? "Copied!" : "Copy URL"}
           </button>
         </>
+      )}
+      {showSuccess && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-4 py-8 px-6 bg-gradient-to-r from-green-400 to-green-600 border-2 border-green-700 rounded-lg shadow-lg"
+        >
+          <div className="flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            >
+              <CheckCircle className="text-white mr-2" size={24} />
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-white text-lg font-semibold"
+            >
+              Success!
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-white text-sm"
+            >
+              Proof generated successfully!
+            </motion.p>
+          </div>
+        </motion.div>
+      )}
+      {proofState && (
+        <div className="flex justify-center items-center mt-4 mb-4 flex-col">
+          <ArrowDown
+            className="mr-2 transition-transform duration-300 animate-bounce rotate-180 text-green-500"
+            size={24}
+          />
+          <VerifyProofButton proof={proof} providerData={providerData} />
+        </div>
       )}
       <button
         type="submit"

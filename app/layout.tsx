@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Nav/Navbar";
 import AppWalletProvider from "@/components/Nav/WalletContext";
 import { Providers } from "@/lib/SessionProvider";
+import PhantomWalletContext from "@/components/Nav/PhantomWalletContext";
+import { SessionProvider } from "@/components/Nav/SessionProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,16 +30,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <AppWalletProvider>
+      <PhantomWalletContext>
+        <SessionProvider>
+          {/* <Providers>
+        <AppWalletProvider> */}
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <Navbar />
             {children}
           </body>
-        </AppWalletProvider>
-      </Providers>
+        </SessionProvider>
+      </PhantomWalletContext>
+      {/* </AppWalletProvider>
+      </Providers> */}
     </html>
   );
 }

@@ -9,14 +9,73 @@ import AvatarCard from "./AvatarCard";
 import { useWallet } from "@solana/wallet-adapter-react";
 import SolanaNFTMinter from "@/lib/NftMintClass";
 import { useState, useEffect } from "react";
+import { getSession, useSession } from "next-auth/react";
+import { calculateTierAndRange } from "@/lib/TierCalculator";
+import providerData from "../Data/Provider.json";
+import { getNFTByTierAndRange } from "@/lib/NftFilter";
+
+interface NFTItem {
+  id: number;
+  name: string;
+  tier: number;
+  range: number;
+  category: string;
+  image_url: string;
+  uri: string;
+}
+
+interface Provider {
+  id: string;
+  name: string;
+  category: string;
+  score: number;
+  description: string;
+}
 
 function Dash() {
   const { publicKey, signTransaction, sendTransaction } = useWallet();
   const [minter, setMinter] = useState<SolanaNFTMinter | null>(null);
+  const [usrScore, setUsrScore] = useState<number>(0);
+  const [filteredData, setFilteredData] = useState<NFTItem[]>([]);
+  const [rangeNum, setRangeNumber] = useState<number>(0);
 
   useEffect(() => {
+    (async () => {
+      const session = await getSession();
+      if (session) {
+        console.log(session);
+        try {
+          const res = await fetch(
+            `/api/updateUser?userId=${session?.user?.id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await res.json();
+          console.log(data);
+          setUsrScore(data.score);
+          const { tierNumber, rangeNumber, nextTierPoints } =
+            calculateTierAndRange(usrScore);
+          setRangeNumber(rangeNumber);
+          console.log(tierNumber, rangeNumber, nextTierPoints);
+          const filterData = getNFTByTierAndRange(tierNumber, rangeNumber);
+          if (filterData) {
+            console.log(filterData);
+            setFilteredData([filterData]);
+          }
+          console.log(filteredData);
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    })();
     if (publicKey && signTransaction) {
       // Create a signer compatible with Metaplex UMI using the wallet
+
       const walletSigner = {
         publicKey: publicKey,
         signTransaction: signTransaction,
@@ -30,14 +89,16 @@ function Dash() {
   }, [publicKey, signTransaction, sendTransaction]);
 
   const handleMint = async () => {
+    console.log(minter);
     if (!minter) {
       console.error("Minter not initialized");
       return;
     }
 
-    const name = "Your NFT Name";
-    const uri = "https://example.com/metadata.json";
+    const name = filteredData[0].name;
+    const uri = filteredData[0].uri;
     const tokenOwner: string | undefined = publicKey?.toBase58();
+    console.log(tokenOwner, "tokenOwner");
     try {
       if (!tokenOwner) {
         throw new Error("Token owner is undefined");
@@ -53,89 +114,122 @@ function Dash() {
     <div className="min-w-full min-h-screen bg-gray-900 md:p-4 p-2">
       <div className="pt-8 px-4 mt-20 rounded-3xl bg-gray-800 pb-4 min-w-full flex flex-col md:flex-row">
         <section className="md:w-3/4 flex flex-col items-center p-2 gap-6">
-          <CardSection />
+          <CardSection filteredData={filteredData} usrScore={usrScore} />
+          <button onClick={handleMint}>Mint</button>
           <ProofGraph />
           <ProviderGrid />
         </section>
         <section className="md:w-1/4 bg-gray-800 rounded-3xl p-2">
-          <SideContent />
+          <SideContent rangeNum={rangeNum} />
         </section>
       </div>
     </div>
   );
 }
 
-function SideContent() {
+function SideContent({ rangeNum }: { rangeNum: number }) {
   return (
     <div className="flex flex-col items-center justify-center gap-12 w-full">
-      <CyberpunkScoreBar score={90} maxScore={100} increase={10} />
+      <CyberpunkScoreBar score={rangeNum} maxScore={100} increase={10} />
       <AnimatedCyberpunkWalletBalance />
     </div>
   );
 }
 
 function ProviderGrid() {
+  const { data: session } = useSession();
+  const [filteredProviders, setFilteredProviders] = useState<Provider[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const userId = session?.user?.id;
+
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProviderNames = async () => {
+      try {
+        const response = await fetch(`/api/getProvider?userId=${userId}`);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch providers");
+        }
+
+        const data = await response.json();
+        const providerNames = data.providerNames.map(
+          (p: { name: string }) => p.name
+        );
+
+        const allProviders = Object.values(providerData).flat() as Provider[];
+        const providers = allProviders.filter((provider: Provider) =>
+          providerNames.includes(provider.name)
+        );
+
+        setFilteredProviders(providers);
+      } catch (error) {
+        setError(error instanceof Error ? error.message : String(error));
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (userId) {
+      fetchProviderNames();
+    }
+  }, [userId]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {[...Array(1)].map((_, index) => (
+          <ProviderCardSkeleton key={index} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Neon Ape"
-        highestBid="1.5"
-        currency="ETH"
-        category="Cybernetic"
-        description="A futuristic ape with neon implants."
-      />
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Digital Primate"
-        highestBid="2.1"
-        currency="ETH"
-        category="AI"
-        description="An ape evolved for the digital age."
-      />
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Quantum Simian"
-        highestBid="1.8"
-        currency="ETH"
-        category="Quantum"
-        description="An ape existing in multiple dimensions."
-      />
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Cyber Gorilla"
-        highestBid="2.5"
-        currency="ETH"
-        category="Augmented"
-        description="A gorilla with advanced cybernetic enhancements."
-      />
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Holo Chimp"
-        highestBid="1.7"
-        currency="ETH"
-        category="Holographic"
-        description="A chimp existing as a holographic projection."
-      />
-      <ProviderCard
-        imageSrc="/ape2.jpg"
-        title="Nano Orangutan"
-        highestBid="2.3"
-        currency="ETH"
-        category="Nanotech"
-        description="An orangutan infused with nanobots."
-      />
+      {filteredProviders.map((provider) => (
+        <ProviderCard
+          key={provider.id}
+          name={provider.name}
+          category={provider.category}
+          score={provider.score}
+          description={provider.description}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ProviderCardSkeleton() {
+  return (
+    <div className="w-64 h-[26rem] rounded-2xl bg-gray-800 animate-pulse">
+      <div className="h-56 bg-gray-700 rounded-t-2xl"></div>
+      <div className="p-4">
+        <div className="h-6 bg-gray-700 rounded w-3/4 mb-2"></div>
+        <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+      </div>
     </div>
   );
 }
 
 export default Dash;
 
-function CardSection() {
+function CardSection({
+  filteredData,
+  usrScore,
+}: {
+  filteredData: NFTItem[];
+  usrScore: number;
+}) {
   return (
     <div className="min-w-full bg-gray-800 rounded-3xl p-2 flex flex-col sm:flex-row gap-2">
       <div className="w-full sm:w-1/2 rounded-3xl">
-        <FlipCard />
+        <FlipCard filteredData={filteredData} usrScore={usrScore} />
       </div>
       <div className="w-full sm:w-1/2">
         <AvatarCard />

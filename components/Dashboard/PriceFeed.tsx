@@ -15,8 +15,8 @@ const CyberpunkWalletBalance = () => {
           const response = await axios.get(
             `/api/balance?walletAddress=${walletAddress.publicKey.toString()}`
           );
-          console.log(response.data);
-          // setBalance(response.data);
+          console.log(response.data.usdValue);
+          setBalance((prev) => (prev = response.data.usdValue.toFixed(2)));
         }
       } catch (error) {
         console.error(
@@ -45,7 +45,7 @@ const CyberpunkWalletBalance = () => {
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 animate-shimmer">
             Solana Balance
           </h2>
-          <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-gradient">
+          <div className="text-3xl flex-row flex sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 animate-gradient">
             ${balance}
           </div>
           <div className="mt-4 text-xs sm:text-sm text-gray-400">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   AreaChart,
   Area,
@@ -9,24 +9,45 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { month: "Jan", proofs: 45 },
-  { month: "Feb", proofs: 62 },
-  { month: "Mar", proofs: 78 },
-  { month: "Apr", proofs: 95 },
-  { month: "May", proofs: 130 },
-  { month: "Jun", proofs: 167 },
-  { month: "Jul", proofs: 189 },
-];
+interface ProofCount {
+  month: string;
+  proof_count: number;
+}
 
 const ProofGraph = () => {
+  const [data, setData] = useState<ProofCount[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/proofCount");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result: ProofCount[] = await response.json();
+        const formattedData = result.map((item) => ({
+          month: new Date(item.month).toLocaleString("default", {
+            month: "short",
+            year: "numeric",
+          }),
+          proofs: Number(item.proof_count),
+        }));
+        setData(formattedData);
+      } catch (error) {
+        console.error("Error fetching proof counts:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div
-      className="bg-black p-4 rounded-lg shadow-lg w-full max-w-5xl "
+      className="bg-black p-4 rounded-lg shadow-lg w-full max-w-5xl"
       style={{ fontFamily: "'Orbitron', sans-serif" }}
     >
       <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-cyan-400">
-        Proof Registration Progress
+        Proof Generation Progress
       </h2>
       <div className="w-full h-[200px] sm:h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
