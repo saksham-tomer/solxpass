@@ -132,5 +132,5 @@ Before you begin, ensure you have met the following requirements:
 
    ```bash
    git clone https://github.com/saksham-tomer/v0.git
-   cd solxpass
+   cd v0
    ```
