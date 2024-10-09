@@ -87,15 +87,28 @@ Transform your engagement into tangible rewards with **NFTs** and a dynamic leve
   - **🦸‍♂️ Hero**
 - **🎁 Tier Benefits:** Unlock exclusive benefits and privileges unique to each tier, enhancing your SolxPass experience.
 
+
 ### 5. SDK for Developers 🛠️
 
-Empower other blockchain applications and DApps to integrate SolxPass functionalities seamlessly:
-
-- **📊 Access User Data:** Retrieve comprehensive user information including stats, scores, tiers, levels, proofs, signatures, and more.
-- **🔌 Easy Integration:** Utilize our robust SDK to enhance your applications with SolxPass's identity and reward features.
+Easily integrate **SolxPass** into other blockchain applications and retrieve user data using our SDK.
 
 ---
 
+### 6. npm Package for DApps 📦
+
+Introducing the **[SolxPass npm package](https://www.npmjs.com/package/reclaim-solxpass)**—a powerful tool for developers building decentralized applications (dApps) on the Solana blockchain.
+
+**Key Features:**
+
+- **📊 Proof Integration:** Quickly implement identity verification and rewards in your dApps.
+- **🔌 Easy Setup:** Utilize the package for decentralized apps like DeFi, DePIN, and blockchain infrastructure projects.
+- **🔍 Retrieve User Data:** Access stats, scores, tiers, levels, proofs, and more with simple API calls.
+
+**Installation:**
+
+```bash
+npm install reclaim-solxpass
+```
 ## 🛠️ Technology Stack
 
 ### Reclaim Protocol
@@ -139,3 +152,7 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/saksham-tomer/v0.git
    cd v0
    ```
+## 📫 Contact
+
+- **Twitter:** [@sakshamtomar](https://x.com/SakshamDevDose)
+- **YouTube:** [SolxPass Overview](https://www.youtube.com/watch?v=V8yvr6hZWP0)
