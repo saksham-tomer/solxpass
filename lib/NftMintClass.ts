@@ -19,8 +19,10 @@ import {
   updateV1,
   fetchMetadataFromSeeds,
 } from "@metaplex-foundation/mpl-token-metadata";
+import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-adapters";
 
 import data from "../components/Data/Tier.json";
+import { WalletAdapter } from "@solana/wallet-adapter-base";
 
 class SolanaNFTMinter {
   private umi: Umi;
@@ -28,11 +30,12 @@ class SolanaNFTMinter {
   private mint: Signer;
 
   constructor(
-    walletSigner: Signer,
+    walletSigner: any,
     cluster: "devnet" | "mainnet-beta" = "devnet"
   ) {
     // Initialize UMI
     this.umi = createUmi(clusterApiUrl(cluster));
+    this.umi.use(walletAdapterIdentity(walletSigner));
     this.umi.use(mplTokenMetadata());
 
     // Set up wallet signer

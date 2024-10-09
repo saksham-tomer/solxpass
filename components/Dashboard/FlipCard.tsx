@@ -17,9 +17,11 @@ interface NFTItem {
 export default function FlipCard({
   filteredData,
   usrScore,
+  handleMint,
 }: {
   filteredData: NFTItem[];
   usrScore: number;
+  handleMint: () => Promise<void>;
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -71,7 +73,13 @@ export default function FlipCard({
                   </p>
                 </h1>
               </div>
-              <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-600 text-white rounded-full border border-cyan-300 flex items-center space-x-1 hover:bg-cyan-700 transition-colors duration-300">
+              <button 
+                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-600 text-white rounded-full border border-cyan-300 flex items-center space-x-1 hover:bg-cyan-700 transition-colors duration-300"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleMint();
+                }}
+              >
                 <span className="font-bold text-xs sm:text-sm">Mint Pass</span>
                 <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>

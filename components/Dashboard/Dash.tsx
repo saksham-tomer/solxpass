@@ -13,6 +13,9 @@ import { getSession, useSession } from "next-auth/react";
 import { calculateTierAndRange } from "@/lib/TierCalculator";
 import providerData from "../Data/Provider.json";
 import { getNFTByTierAndRange } from "@/lib/NftFilter";
+import SolanaNFTMinter2, { mintNFTnow } from "@/lib/OldMint";
+import { Connection } from "@solana/web3.js";
+import { MetaNft } from "@/lib/Metaplex";
 
 interface NFTItem {
   id: number;
@@ -33,11 +36,13 @@ interface Provider {
 }
 
 function Dash() {
-  const { publicKey, signTransaction, sendTransaction } = useWallet();
+  // const { publicKey, signTransaction, sendTransaction } = useWallet();
   const [minter, setMinter] = useState<SolanaNFTMinter | null>(null);
   const [usrScore, setUsrScore] = useState<number>(0);
   const [filteredData, setFilteredData] = useState<NFTItem[]>([]);
   const [rangeNum, setRangeNumber] = useState<number>(0);
+  const wallet = useWallet();
+  const connection = new Connection("https://api.devnet.solana.com");
 
   useEffect(() => {
     (async () => {
@@ -73,38 +78,42 @@ function Dash() {
         }
       }
     })();
-    if (publicKey && signTransaction) {
-      // Create a signer compatible with Metaplex UMI using the wallet
+    // if (publicKey && signTransaction) {
+    //   // Create a signer compatible with Metaplex UMI using the wallet
 
-      const walletSigner = {
-        publicKey: publicKey,
-        signTransaction: signTransaction,
-        signAllTransactions: sendTransaction,
-      };
+    //   const walletSigner = {
+    //     publicKey: publicKey,
+    //     signTransaction: signTransaction,
+    //     signAllTransactions: sendTransaction,
+    //   };
 
-      // Initialize the NFT Minter with the wallet signer
-      const solanaMinter = new SolanaNFTMinter(walletSigner, "devnet");
-      setMinter(solanaMinter);
-    }
-  }, [publicKey, signTransaction, sendTransaction]);
+    //   // Initialize the NFT Minter with the wallet signer
+    //   const solanaMinter = new SolanaNFTMinter(walletSigner, "devnet");
+    //   setMinter(solanaMinter);
+    // }
+  }, [wallet]);
 
   const handleMint = async () => {
-    console.log(minter);
-    if (!minter) {
-      console.error("Minter not initialized");
-      return;
-    }
+    // console.log(minter.mint.secretKey);
 
+    // if (!minter) {
+    //   console.error("Minter not initialized");
+    //   return;
+    // }
+    // const contract = minter.mint.publicKey;
+    // const mintx = new SolanaNFTMinter2(contract, "devnet");
     const name = filteredData[0].name;
     const uri = filteredData[0].uri;
-    const tokenOwner: string | undefined = publicKey?.toBase58();
+    const tokenOwner: string | undefined = wallet.publicKey?.toBase58();
     console.log(tokenOwner, "tokenOwner");
     try {
       if (!tokenOwner) {
         throw new Error("Token owner is undefined");
       }
-      const result = await minter.createAndMintNFT(name, uri, tokenOwner, 500); // 5% seller fee
-      console.log("NFT Minted:", result);
+      //  mintx.createAndMintNFT(name, uri, tokenOwner, 500);
+      // const [create, mnt] = await mintNFTnow({ uri, name });
+      const res = await MetaNft(connection, wallet, name, uri, "SolXPass");
+      console.log("NFT Minted:", res);
     } catch (error) {
       console.error("Minting failed:", error);
     }
@@ -114,8 +123,7 @@ function Dash() {
     <div className="min-w-full min-h-screen bg-gray-900 md:p-4 p-2">
       <div className="pt-8 px-4 mt-20 rounded-3xl bg-gray-800 pb-4 min-w-full flex flex-col md:flex-row">
         <section className="md:w-3/4 flex flex-col items-center p-2 gap-6">
-          <CardSection filteredData={filteredData} usrScore={usrScore} />
-          <button onClick={handleMint}>Mint</button>
+          <CardSection filteredData={filteredData} usrScore={usrScore} handleMint={handleMint} />
           <ProofGraph />
           <ProviderGrid />
         </section>
@@ -222,14 +230,16 @@ export default Dash;
 function CardSection({
   filteredData,
   usrScore,
+  handleMint,
 }: {
   filteredData: NFTItem[];
   usrScore: number;
+  handleMint: () => Promise<void>;
 }) {
   return (
     <div className="min-w-full bg-gray-800 rounded-3xl p-2 flex flex-col sm:flex-row gap-2">
       <div className="w-full sm:w-1/2 rounded-3xl">
-        <FlipCard filteredData={filteredData} usrScore={usrScore} />
+        <FlipCard filteredData={filteredData} usrScore={usrScore} handleMint={handleMint} />
       </div>
       <div className="w-full sm:w-1/2">
         <AvatarCard />
