@@ -47,7 +47,7 @@ function Main() {
           </h3>
           <div
             onClick={() => router.push("/explore")}
-            className="max-w-xs  md:max-w-sm uppercase py-2 rounded-3xl bg-orange-600 flex items-center hover:bg-orange-700 cursor-pointer font-bold justify-center gap-4 text-black text-sm md:text-base"
+            className="z-50 max-w-xs  md:max-w-sm uppercase py-2 rounded-3xl bg-orange-600 flex items-center hover:bg-orange-700 cursor-pointer font-bold justify-center gap-4 text-black text-sm md:text-base"
           >
             <IoBoat className="text-white rounded-full bg-black p-2 w-8 h-8 md:w-9 md:h-9 font-bold" />
             Generate proofs

@@ -343,7 +343,6 @@ const RightSidebar = () => (
           <span className="text-xs text-gray-500">
             Entertainment · Trending
           </span>
-          <p className="font-bold">#PoojaHegde</p>
           <span className="text-xs text-gray-500">1,588 posts</span>
         </div>
         <div className="mb-4">
@@ -412,7 +411,7 @@ const SocialMediaFeed = () => {
           id: 1,
           author: "Elon Musk",
           username: "@elonmusk",
-          content: "As this video describes, Trump supports women",
+          content: "Share your thoughts about SolXPass",
           image: "/api/placeholder/400/300",
           likes: "387K",
           reposts: "71K",
@@ -423,8 +422,7 @@ const SocialMediaFeed = () => {
           id: 2,
           author: "mango",
           username: "@Kacccha",
-          content:
-            "After countless sleepless nights, hard work, and tons of innovation, I am excited to announce that w 🎉✨",
+          content: "First verification complete on SolXPass 🎉✨",
           likes: "100",
           reposts: "10",
           comments: "5",
