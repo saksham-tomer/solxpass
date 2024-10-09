@@ -9,8 +9,10 @@ const Main3: React.FC = () => {
         Best offer
       </p>
       <h1 className="font-semibold text-black font-impact md:text-4xl mt-2 text-2xl">
-        0.4636
-        <span className="font-semibold font-mono ml-2 text-base">WETH</span>
+        15.00
+        <span className="font-semibold font-mono ml-2 text-base uppercase">
+          Solxc
+        </span>
       </h1>
       <div className="mt-4 rounded-lg bg-orange-500 min-w-full min-h-60 border-4 border-black p-1">
         <Experience />

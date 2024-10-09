@@ -7,7 +7,9 @@ const MarqueeEffect2 = () => {
       <div className="flex items-center h-full animate-marquee">
         {[...Array(10)].map((_, index) => (
           <React.Fragment key={index}>
-            <span className="text-black text-6xl font-bold mx-4">ACHB</span>
+            <span className="text-black text-6xl uppercase font-bold mx-4">
+              Solxpass
+            </span>
             <span className="text-black text-6xl shadow-2xl font-bold mx-4">
               ✕
             </span>

@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Experience from "./Scene";
 import { IoBoat } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 function Main() {
+  const router = useRouter();
+
   const svgCode = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
       <defs>
@@ -27,23 +31,26 @@ function Main() {
   const encodedSVG = encodeURIComponent(svgCode);
 
   return (
-    <div className="bg-neutral-800 flex flex-col items-center justify-center relative min-h-screen w-full overflow-hidden">
+    <div className="bg-neutral-800 min-h-[55rem] flex flex-col items-center justify-center relative  w-full  overflow-hidden">
       <div
         className="absolute left-0 right-0 bottom-auto top-16 m-auto w-3/4 max-w-sm h-3/4 max-h-96 bg-no-repeat bg-center bg-contain z-0"
         style={{ backgroundImage: `url("data:image/svg+xml,${encodedSVG}")` }}
       />
       <div className="flex flex-col md:flex-row justify-between w-full px-4 md:px-8 lg:px-16 xl:px-72 top-0 absolute z-10">
-        <h1 className="font-impact text-4xl md:text-5xl lg:text-elephant tracking-tight uppercase text-white">
-          A KIDS
+        <h1 className="font-impact text-4xl md:text-5xl lg:text-elephant tracking-tight text-white">
+          SolX
         </h1>
         <div className="flex flex-col gap-4 mt-8 md:mt-0">
           <h3 className="font-light text-white font-impact text-sm md:text-lg max-w-xs md:max-w-sm lg:max-w-md mt-8 md:mt-40 uppercase">
-            SOME MORE FREE THAN OTHERS REALITY HAS EVOLVED BEYOND THE PHYSICAL.
-            TO FACILITATE & CREATE NEW DIGITAL TRIBES
+            Level up out unique tiers to get exclusive rewards <br /> 4 Tiers
+            with 10 levels each
           </h3>
-          <div className="max-w-xs md:max-w-sm py-2 rounded-3xl bg-orange-600 flex items-center hover:bg-orange-700 cursor-pointer font-bold justify-center gap-4 text-black text-sm md:text-base">
+          <div
+            onClick={() => router.push("/explore")}
+            className="max-w-xs  md:max-w-sm uppercase py-2 rounded-3xl bg-orange-600 flex items-center hover:bg-orange-700 cursor-pointer font-bold justify-center gap-4 text-black text-sm md:text-base"
+          >
             <IoBoat className="text-white rounded-full bg-black p-2 w-8 h-8 md:w-9 md:h-9 font-bold" />
-            VIEW ON OPENSEA
+            Generate proofs
           </div>
         </div>
       </div>
@@ -56,13 +63,13 @@ function Main() {
             }}
           >
             <h3 className="font-light text-white font-impact text-sm md:text-lg max-w-xs md:max-w-sm lg:max-w-md uppercase p-4">
-              SOME MORE FREE THAN OTHERS REALITY HAS EVOLVED BEYOND THE
-              PHYSICAL. TO FACILITATE & CREATE NEW DIGITAL TRIBES
+              Level up your unique tiers to get exclusive rewards 4 tiers
+              Animal🦁, Dinosaur🦖, Alien👽, Hero🦸‍♂️
             </h3>
           </div>
         </div>
         <h1 className="font-impact text-4xl md:text-5xl lg:text-elephant tracking-tight uppercase text-white self-end">
-          Be
+          Pass
         </h1>
       </div>
       <div className="absolute inset-0 z-5">
