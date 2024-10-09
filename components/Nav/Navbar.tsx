@@ -12,6 +12,7 @@ import {
 import WalletConnection from "./WalletAdapter";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,6 +95,8 @@ const Navbar = () => {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <>
       <motion.nav
@@ -113,8 +116,11 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 animate-gradient-x">
-                Solana Passport
+              <span
+                onClick={() => router.push("/")}
+                className="bg-clip-text text-transparent cursor-pointer bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 animate-gradient-x"
+              >
+                SolXPass
               </span>
             </motion.div>
             <ul className="hidden md:flex space-x-8">
