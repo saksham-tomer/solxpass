@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "drizzle-kit generate",
-    "migrate": "tsx db/migrate.ts"
+    "migrate": "tsx db/migrate.ts",
+    "postinstall": "prisma generate"
+
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.29.0",

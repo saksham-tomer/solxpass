@@ -1,9 +1,5 @@
 import { PublicKey } from "@solana/web3.js";
-import {
-  Metaplex,
-  walletAdapterIdentity,
-  bundlrStorage,
-} from "@metaplex-foundation/js";
+import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
 
 // Assume connection and wallet are already set up and passed to these functions
 
@@ -46,9 +42,7 @@ export const MetaUpdateNFT = async (
     throw new Error("Wallet not connected");
   }
 
-  const metaplex = Metaplex.make(connection)
-    .use(walletAdapterIdentity(wallet))
-    .use(bundlrStorage());
+  const metaplex = Metaplex.make(connection).use(walletAdapterIdentity(wallet));
 
   try {
     console.log("Updating NFT...");
