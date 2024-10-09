@@ -17,7 +17,7 @@ export default function RequestProof() {
       console.log("Requesting proof...");
 
       const response = await fetch(
-        `http://localhost:3000/api/proof?id=0&userId=23124141123121`,
+        `https://www.solxpass.me/api/proof?id=0&userId=23124141123121`,
         {
           method: "GET",
           headers: {
@@ -41,9 +41,8 @@ export default function RequestProof() {
             const signatures = proofs[0]?.signatures;
             if (signatures) {
               console.log("Signatures found:", signatures);
-          
+
               localStorage.setItem("savedSign", JSON.stringify(signatures));
-            
             } else {
               console.error("Signatures not found in the proofs object");
             }

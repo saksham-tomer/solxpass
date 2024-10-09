@@ -41,7 +41,7 @@ export default function RequestProof({
       console.log("Requesting proof...");
 
       const response = await fetch(
-        `http://localhost:3000/api/proof?userId=${userId}&id=${providerData.id}`,
+        `https://www.solxpass.me/api/proof?userId=${userId}&id=${providerData.id}`,
         {
           method: "GET",
           headers: {
