@@ -83,11 +83,12 @@ const Navbar = () => {
       text: "Dashboard",
       href: "/dashboard",
     },
+    /*
     {
       icon: <RiNewspaperLine className="mr-2 text-2xl text-green-500" />,
       text: "Feeds",
       href: "/feeds",
-    },
+    },*/
     {
       icon: <RiShieldCheckLine className="mr-2 text-2xl text-yellow-500" />,
       text: "Proof",
